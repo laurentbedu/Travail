@@ -1,37 +1,64 @@
-class Utilisateur {
-    constructor(id, nom, prenom) {
-        this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
+$(function () {
+
+    // Constructeur de l'objet Utilisateur
+    class Utilisateur {
+        constructor(id, nom, prenom) {
+            this.id = id;
+            this.nom = nom;
+            this.prenom = prenom;
+        }
+        // Insertion des nouveaux utilisateurs dans un tableau
+        tableauUtilisateurs() {
+            stockUtilisateurs.push(utilisateurEnr);
+        }
+        // Affiche la liste des utilisateurs dans un tableau
+        affiche() {
+            $("#afficheLigne").append("<tr><th scope='row'>" + this.id + "</th>" + "<td>" + this.nom + "</td>" + "<td>" + this.prenom + "</td>");
+        }
     }
-    affiche(){
-        $("#afficheLigne").append("<tr><th scope='row'>" + this.id + "</th>" + "<td>" + this.nom + "</td>" + "<td>" + this.prenom + "</td>");
+
+    // On instancie un nouvel utilisateur
+    function ajoutUtilisateur(id, nom, prenom) {
+        let newUtilisateur = new Utilisateur(id, nom, prenom);
+        return newUtilisateur;
     }
-    
-}
 
-function ajoutUtilisateur(id, nom, prenom) {
-    let newUtilisateur = new Utilisateur(id, nom, prenom);
-    return newUtilisateur;
-}
+    // Initialisation des variables
+    let idUtilisateur, nom, prenom, utilisateurEnr, stockUtilisateurs = [];
 
-function tableauUtilisateurs(utilisateurSaisi) {
-    let stock = [];
-    stock.push(utilisateurSaisi);
-    return stock;
-}
+    // Reset les inputs
+    $("#nouveau").on("click", function () {
+        $("form :input").val("");
+        $("#enregistre").toggleClass("d-none");
+        $("#afficheVide").toggleClass("d-none");
+    })
 
+    // Enregistrement de l'utilisateur
+    $("#envoyer").on("click", function () {
+        idUtilisateur = $("#idUtilisateur:input").val();
+        nom = $("#nom:input").val();
+        prenom = $("#prenom:input").val();
 
-let utilisateurEnr = ajoutUtilisateur(1, 'BROUET', 'Thierry');
-let utilisateurEnr2 = ajoutUtilisateur(2, 'BROUET', 'Amandine');
+        utilisateurEnr = ajoutUtilisateur(idUtilisateur, nom, prenom);
 
-let stockUtilisateurs = tableauUtilisateurs(utilisateurEnr);
-stockUtilisateurs = tableauUtilisateurs(utilisateurEnr2);
+        utilisateurEnr.tableauUtilisateurs();
 
-console.log(stockUtilisateurs);
+        $("#enregistre").toggleClass("d-none");
+    })
 
-for(items of stockUtilisateurs) {
-    items.affiche();
-}
+    // Affichage des utilisateurs dans un tableau
+    $("#afficher").on("click", function () {
+        for (let i = 0; i < stockUtilisateurs.length; i++) {
+            stockUtilisateurs[i].affiche();
+        }
+    })
+
+    // Efface toutes les données
+    $("#vider").on("click", function(){
+        stockUtilisateurs = [];
+        $("#afficheVide").toggleClass("d-none");
+    })
+})
+
 
 
