@@ -1,29 +1,37 @@
 class Utilisateur {
-    constructor(nom, prenom) {
+    constructor(id, nom, prenom) {
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
     }
-    affiche() {
-        alert("Nom : " + this.nom + "\nPrenom : " + this.prenom);
+    affiche(){
+        $("#afficheLigne").append("<tr><th scope='row'>" + this.id + "</th>" + "<td>" + this.nom + "</td>" + "<td>" + this.prenom + "</td>");
     }
-
-    fusionUtilisateur(nomUtilisateur, prenomUtilisateur) {
-        let fusion = nomUtilisateur.concat(", " + prenomUtilisateur);
-        return fusion;
-    }
-
-    ajoutDansTableau(chaineComplete) {
-        let tableauUtilisateurs = [];
-        tableauUtilisateurs.push(chaineComplete);
-        return tableauUtilisateurs;
-    }
+    
 }
 
-let ajoutUtilisateur = new Utilisateur(nom, prenom);
+function ajoutUtilisateur(id, nom, prenom) {
+    let newUtilisateur = new Utilisateur(id, nom, prenom);
+    return newUtilisateur;
+}
 
-let fusion = ajoutUtilisateur.fusionUtilisateur(nom, prenom);
-let tableauDesUtilisateurs = ajoutUtilisateur.ajoutDansTableau(fusion);
+function tableauUtilisateurs(utilisateurSaisi) {
+    let stock = [];
+    stock.push(utilisateurSaisi);
+    return stock;
+}
 
-ajoutUtilisateur.affiche();
 
-console.log(tableauDesUtilisateurs);
+let utilisateurEnr = ajoutUtilisateur(1, 'BROUET', 'Thierry');
+let utilisateurEnr2 = ajoutUtilisateur(2, 'BROUET', 'Amandine');
+
+let stockUtilisateurs = tableauUtilisateurs(utilisateurEnr);
+stockUtilisateurs = tableauUtilisateurs(utilisateurEnr2);
+
+console.log(stockUtilisateurs);
+
+for(items of stockUtilisateurs) {
+    items.affiche();
+}
+
+
