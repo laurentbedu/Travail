@@ -13,7 +13,7 @@ $(function () {
         }
         // Affiche la liste des utilisateurs dans un tableau
         affiche() {
-            $("#afficheLigne").append("<tr><th scope='row'>" + this.id + "</th>" + "<td>" + this.nom + "</td>" + "<td>" + this.prenom + "</td>");
+            $("#afficheLigne").html("<tr><th scope='row'>" + this.id + "</th>" + "<td>" + this.nom + "</td>" + "<td>" + this.prenom + "</td>");
         }
     }
 
