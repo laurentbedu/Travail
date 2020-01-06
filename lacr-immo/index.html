@@ -22,7 +22,7 @@
         <div class="col">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active display-4 text-warning" href="#">L'AGENCE</a>
+                    <p class="nav-link display-4 text-warning modalAgency" data-toggle="modal" data-target="#modalAgency">L'AGENCE</p>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link display-4 text-warning" href="#">NOUS CONTACTER</a>
@@ -66,9 +66,9 @@
                                 <label class="input-group-text" for="localisation">Localisation</label>
                             </div>
                             <select class="custom-select" id="localisation">
-                                <option value="centreVille">Centre-ville</option>
-                                <option value="ecole">Ecoles</option>
-                                <option value="commerce">Commerces</option>
+                                <option value="centreVille">Lille</option>
+                                <option value="ecole">Roubaix</option>
+                                <option value="commerce">Tourcoing</option>
                             </select>
                         </div>
                     </div>
@@ -112,12 +112,12 @@
                         </div>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <a class="carousel-control-prev" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <a class="carousel-control-next" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
                     <span class="sr-only">Next</span>
                 </a>
             </div>
@@ -169,7 +169,7 @@
         </div>
         <div class="col">
             <h4>Offre n°2</h4>
-            <h4>Lille</h4>
+            <h4>Roubaix</h4>
             <p>En secteur calme très proche des écoles, jolie maison individuelle en L des années 1930 en bon état. Salon séjour de 24m² avec poêle à granul...  </p>
         </div>
         <div class="col">
@@ -195,6 +195,76 @@
         </div>
     </div>
     <hr>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col align-self-center">
+            <p><img src="src/img/appartement1.jpg" alt="Photo appartement 1"></p>
+        </div>
+        <div class="col">
+            <h4>Offre n°3</h4>
+            <h4>Tourcoing</h4>
+            <p>Appartement spacieux et lumineux, sans vis à vis entrée, cuisine, 2 sdb, 2 wc, palier, 3 chambres, un grand séjour  </p>
+        </div>
+        <div class="col">
+
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <p>Nb de chambre : 3</p>
+                </li>
+                <li class="nav-item">
+                    <p>Poss ch supplémentaires : Oui</p>
+                </li>
+                <li class="nav-item">
+                    <p>Jardin : Oui</p>
+                </li>
+                <li class="nav-item">
+                    <p>Garage: Oui</p>
+                </li>
+            </ul>
+        </div>
+        <div class="w-100"></div>
+        <div class="col d-flex justify-content-center">
+            <button type="button" class="btn btn-success">En savoir +</button>
+        </div>
+    </div>
+    <hr>
+</div>
+
+<!-- Footer -->
+<div class="container-fluid bg-dark p-4">
+    <ul class="nav justify-content-around">
+        <li class="nav-item">
+            <p class="nav-link h2 text-warning modalAgency" data-toggle="modal" data-target="#modalAgency">L'AGENCE</p>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link h2 text-warning" href="#">MENTIONS LEGALES</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link h2 text-warning" href="#">NOUS CONTACTER</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Modale L'agence -->
+<div class="modal fade" id="modalAgency" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAgencyTitle">Notre agence</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Profitez de l'expérience d'une agence immobilière depuis 30 ans à votre service...
+                    Trouvez sur ce site l'ensemble de nos biens en vente.
+                    N'hésitez pas à nous contacter quelle que soit votre demande.</p>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 <!-- Optional JavaScript -->
