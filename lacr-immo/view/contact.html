@@ -12,14 +12,15 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
     <header class="container-fluid">
         <div class="row p-3 align-items-center bg-dark">
             <div class="col">
                 <p><img src="../src/img/logo.png" alt="Logo du site"></p>
+                <h4 id="slogan" class="text-warning">Demain vous êtes chez vous !</h4>
             </div>
             <div class="col">
                 <ul class="nav">
@@ -31,7 +32,7 @@
                             L'AGENCE</p>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link h2 text-warning" href="view/contact.html">NOUS CONTACTER</a>
+                        <a class="nav-link h2 text-warning" href="../view/contact.html">NOUS CONTACTER</a>
                     </li>
                 </ul>
             </div>
@@ -41,15 +42,16 @@
                 <h2>Découvrez<br>
                     nos offres</h2>
             </div>
-            <div class="col-7">
+            <div class="col-9">
                 <form>
                     <div class="form-row">
                         <div class="col">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <label class="input-group-text" for="achatLocation">Achat / Location</label>
+                                    <label class="input-group-text bg-warning border border-warning"
+                                        for="achatLocation">Achat / Location</label>
                                 </div>
-                                <select class="custom-select" id="achatLocation">
+                                <select class="custom-select border border-warning" id="achatLocation">
                                     <option value="achat">Achat</option>
                                     <option value="location">Location</option>
                                 </select>
@@ -59,10 +61,11 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <label class="input-group-text" for="typeDeBien">Type de bien</label>
+                                    <label class="input-group-text bg-warning border border-warning"
+                                        for="typeDeBien">Type de bien</label>
                                 </div>
-                                <select class="custom-select" id="typeDeBien">
-                                    <option value="appartement">Appt</option>
+                                <select class="custom-select border border-warning" id="typeDeBien">
+                                    <option value="appartement">Appartement</option>
                                     <option value="maison">Maison</option>
                                 </select>
                             </div>
@@ -70,9 +73,10 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <label class="input-group-text" for="localisation">Localisation</label>
+                                    <label class="input-group-text bg-warning border border-warning"
+                                        for="localisation">Localisation</label>
                                 </div>
-                                <select class="custom-select" id="localisation">
+                                <select class="custom-select border border-warning" id="localisation">
                                     <option value="centreVille">Lievin</option>
                                     <option value="ecole">Roubaix</option>
                                     <option value="commerce">Tourcoing</option>
@@ -80,14 +84,14 @@
                             </div>
                         </div>
                         <div class="col">
-                            <button type="text" class="btn btn-success" id="recherche">Rechercher</button>
+                            <button type="text" class="btn btn-warning" id="recherche">Rechercher</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </header>
-
+    <hr>
     <!-- Formulaire de contact -->
 
     <div class="container-fluid mb-3 p-5">
@@ -97,25 +101,27 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-7">
                 <p>Utilisez le formulaire ci-dessous pour nous contacter par mail.<br>
                     Nous vous répondrons dans les plus brefs délais.</p>
-                <form action="#" method="post" class="border shadow-lg p-3 rounded-lg bg-warning w-75">
+                <form action="#" method="post" class="border border-warning shadow-lg p-3 rounded-lg bg-dark w-75">
                     <div class="form-row">
                         <div class="col">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="nom">Nom</span>
+                                    <span class="input-group-text bg-warning border border-warning" id="nom">Nom</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Votre nom">
+                                <input type="text" class="form-control border border-warning" placeholder="Votre nom">
                             </div>
                         </div>
                         <div class="col">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="prenom">Prénom</span>
+                                    <span class="input-group-text bg-warning border border-warning"
+                                        id="prenom">Prénom</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Votre prenom">
+                                <input type="text" class="form-control border border-warning"
+                                    placeholder="Votre prenom">
                             </div>
                         </div>
                     </div>
@@ -123,27 +129,21 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="mail">Mail*</span>
+                                    <span class="input-group-text bg-warning border border-warning"
+                                        id="mail">Mail*</span>
                                 </div>
-                                <input type="email" class="form-control" placeholder="Votre email">
+                                <input type="email" class="form-control border border-warning"
+                                    placeholder="Votre email">
                             </div>
                         </div>
                         <div class="col">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="telephone">Téléphone*</span>
+                                    <span class="input-group-text bg-warning border border-warning"
+                                        id="telephone">Téléphone*</span>
                                 </div>
-                                <input type="tel" class="form-control" placeholder="Votre numéro de téléphone">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="adresse">Adresse</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Votre adresse">
+                                <input type="tel" class="form-control border border-warning"
+                                    placeholder="Votre numéro de téléphone">
                             </div>
                         </div>
                     </div>
@@ -151,17 +151,11 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="codePostal">Code postal</span>
+                                    <span class="input-group-text bg-warning border border-warning"
+                                        id="adresse">Adresse</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Votre code postal">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="ville">Ville</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Votre ville">
+                                <input type="text" class="form-control border border-warning"
+                                    placeholder="Votre adresse">
                             </div>
                         </div>
                     </div>
@@ -169,9 +163,31 @@
                         <div class="col">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="objet">Objet</span>
+                                    <span class="input-group-text bg-warning border border-warning" id="codePostal">Code
+                                        postal</span>
                                 </div>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control border border-warning"
+                                    placeholder="Votre code postal">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-warning border border-warning"
+                                        id="ville">Ville</span>
+                                </div>
+                                <input type="text" class="form-control border border-warning" placeholder="Votre ville">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-warning border border-warning"
+                                        id="objet">Objet</span>
+                                </div>
+                                <input type="text" class="form-control border border-warning">
                             </div>
                         </div>
                     </div>
@@ -179,15 +195,15 @@
                         <div class="col">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Message</span>
+                                    <span class="input-group-text bg-warning border border-warning">Message</span>
                                 </div>
-                                <textarea class="form-control" rows="5" cols="33"></textarea>
+                                <textarea class="form-control border border-warning" rows="5" cols="33"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="form-row text-right mt-3">
                         <div class="col">
-                            <button type="submit" class="btn btn-success">Envoyer</button>
+                            <button type="submit" class="btn btn-warning">Envoyer</button>
                         </div>
                     </div>
 
@@ -195,32 +211,34 @@
             </div>
             <div class="col">
                 <p>Vous pouvez également nous contacter :</p>
-                <div class="row justify-content-center mt-5 mb-5">
-                    <div class="media">
-                        <img src="../src/img/icone-telephone-26.png" class="mr-3" alt="Icone téléphone">
-                        <div class="media-body">
-                            <p>Par téléphone<br>
-                                03-00-00-00-00</p>
+                <div class="p-5 border border-warning rounded-lg shadow-lg bg-dark text-warning">
+                    <div class="row justify-content-center mt-5 mb-5">
+                        <div class="media align-items-center">
+                            <img src="../src/img/icone-telephone-26.png" class="mr-3" alt="Icone téléphone">
+                            <div class="media-body">
+                                <h4>Par téléphone<br>
+                                    03-00-00-00-00</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row justify-content-center mb-5">
-                    <div class="media">
-                        <img src="../src/img/icone-mail-26.png" class="mr-3" alt="Icone courrier">
-                        <div class="media-body">
-                            <p>Par courrier au<br>
-                                100 rte Nationale<br>
-                                59000 Lille</p>
+                    <div class="row justify-content-center mb-5">
+                        <div class="media align-items-center">
+                            <img src="../src/img/icone-mail-26.png" class="mr-3" alt="Icone courrier">
+                            <div class="media-body">
+                                <h4>Par courrier au<br>
+                                    100 rte Nationale<br>
+                                    59000 Lille</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row justify-content-center mb-5">
-                    <div class="media">
-                        <img src="../src/img/icone-email-26.png" class="mr-3" alt="Icone Email">
-                        <div class="media-body">
-                            <p>Par email<br>
-                                Via le formulaire<br>
-                                ci-contre</p>
+                    <div class="row justify-content-center mb-5">
+                        <div class="media align-items-center">
+                            <img src="../src/img/icone-email-26.png" class="mr-3" alt="Icone Email">
+                            <div class="media-body">
+                                <h4>Par email<br>
+                                    Via le formulaire<br>
+                                    ci-contre</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -240,7 +258,7 @@
                     data-target="#modalLegalNotice">MENTIONS LEGALES</p>
             </li>
             <li class="nav-item">
-                <a class="nav-link h2 text-warning" href="view/contact.html">NOUS CONTACTER</a>
+                <a class="nav-link h2 text-warning" href="../view/contact.html">NOUS CONTACTER</a>
             </li>
         </ul>
     </div>
@@ -248,7 +266,7 @@
     <!-- Modale Mentions légales -->
     <div class="modal fade" id="modalLegalNotice" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content border border-warning shadow-lg">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalLegalNoticeTitle">Mentions légales</h5>
                     <button type="button" class="close" data-dismiss="modal">
@@ -267,7 +285,7 @@
     <!-- Modale L'agence -->
     <div class="modal fade" id="modalAgency" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content border border-warning shadow-lg">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalAgencyTitle">Notre agence</h5>
                     <button type="button" class="close" data-dismiss="modal">
@@ -292,7 +310,7 @@
     <script src="../src/js/bootstrap.min.js"></script>
 
     <script src="../src/js/main.js"></script>
-    
+
 </body>
 
 </html>
