@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <title>LACR-IMMO Page Contact</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../src/css/bootstrap.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="container-fluid">
+    <div class="row p-3 align-items-center bg-dark">
+        <div class="col">
+            <p><img src="../src/img/logo.png" alt="Logo du site"></p>
+        </div>
+        <div class="col">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link h2 text-warning" href="../index.html">ACCUEIL</a>
+                </li>
+                <li class="nav-item">
+                    <p class="nav-link h2 text-warning modalAgency" data-toggle="modal" data-target="#modalAgency">
+                        L'AGENCE</p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link h2 text-warning" href="../view/contact.html">NOUS CONTACTER</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row p-3">
+        <div class="col">
+            <h2>Découvrez<br>
+                nos offres</h2>
+        </div>
+        <div class="col-7">
+            <form>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="achatLocation">Achat / Location</label>
+                            </div>
+                            <select class="custom-select" id="achatLocation">
+                                <option value="achat">Achat</option>
+                                <option value="location">Location</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="typeDeBien">Type de bien</label>
+                            </div>
+                            <select class="custom-select" id="typeDeBien">
+                                <option value="appartement">Appt</option>
+                                <option value="maison">Maison</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="localisation">Localisation</label>
+                            </div>
+                            <select class="custom-select" id="localisation">
+                                <option value="centreVille">Lille</option>
+                                <option value="ecole">Roubaix</option>
+                                <option value="commerce">Tourcoing</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <button type="text" class="btn btn-success" id="recherche">Rechercher</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- Affichage carte Google MAP -->
+
+<div class="container-fluid mb-3">
+    <div class="titre">
+        <h2>Offre n°1 - Grande maison pavillonaire</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="col">
+                    coucou
+                </div>
+                <div class="col">
+                    coucou2
+                </div>
+                <div class="col">
+                    coucou3
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div id="maps">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="container-fluid bg-dark p-4">
+    <ul class="nav justify-content-around">
+        <li class="nav-item">
+            <p class="nav-link h2 text-warning modalAgency" data-toggle="modal" data-target="#modalAgency">L'AGENCE
+            </p>
+        </li>
+        <li class="nav-item">
+            <p class="nav-link h2 text-warning modalLegalNotice" data-toggle="modal"
+               data-target="#modalLegalNotice">MENTIONS LEGALES</p>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link h2 text-warning" href="../view/contact.html">NOUS CONTACTER</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Modale Mentions légales -->
+<div class="modal fade" id="modalLegalNotice" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLegalNoticeTitle">Mentions légales</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam delectus deleniti dolorem earum
+                    est, eveniet excepturi fuga, laborum laudantium minus nihil obcaecati odio quia quod ratione
+                    rerum, veniam veritatis voluptatem?</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modale L'agence -->
+<div class="modal fade" id="modalAgency" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAgencyTitle">Notre agence</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Profitez de l'expérience d'une agence immobilière depuis 30 ans à votre service...
+                    Trouvez sur ce site l'ensemble de nos biens en vente.
+                    N'hésitez pas à nous contacter quelle que soit votre demande.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="../src/js/jquery-3.4.1.min.js"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-Q8-xZAvhbFCoWYWh0gv02z36JFqDCVg&callback=initMap">
+</script>
+
+<script src="../src/js/popper.min.js"></script>
+
+<script src="../src/js/bootstrap.min.js"></script>
+
+<script src="../src/js/main.js"></script>
+
+<script src="../src/js/maps.js"></script>
+
+
+</body>
+
+</html>
