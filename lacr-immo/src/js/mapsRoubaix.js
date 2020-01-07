@@ -1,55 +1,46 @@
-function initMap(listener) {
+function initMapRoubaix(listener) {
     // les coordonnées
-    let lacrImmo = {
-        lat: 50.4245,
-        lng: 2.7738
-    };
 
     let lacrImmoRoubaix = {
         lat: 50.690071,
         lng: 3.174607
     }; // 14 Rue du Château, 59100 Roubaix
 
-    let offre1 = {
-        lat: 50.416815,
-        lng: 2.767052
-    };
-
     let offre2 = {
         lat: 50.675829,
         lng: 3.196097
     }; // Cour Planchon, 59100 Roubaix
 
-    let content = "<div class='text-center'><h5>Agence Lacr Immo</h5> <p><img src='../src/img/slider-1.jpg' class='img-thumbnail shadow-lg w-75' alt='Image caroussel 1'></p><p>Rue du Mal Delattre de Tassigny</p><p>62100 Lievin</p></div>";
-    let content2 = "<div class='text-center'><h5>Offre n°1 - Grande maison pavillonaire</h5> <p><img src='../src/img/maison1.jpg' class='img-thumbnail shadow-lg w-75' alt='Photo maison 1'></p><p>41 Rue Henri Martin</p><p>62100 Lievin</p></div>";
+    let content = "<div class='text-center'><h5>Agence Lacr Immo</h5> <p><img src='../src/img/slider-1.jpg' class='img-thumbnail shadow-lg w-75' alt='Image caroussel 1'></p><p>14 Rue du Château</p><p>59100 Roubaix</p></div>";
+    let content2 = "<div class='text-center'><h5>Offre n°2 - Jolie maison individuelle</h5> <p><img src='../src/img/maison2.jpg' class='img-thumbnail shadow-lg w-75' alt='Photo maison 2'></p><p>Cour Planchon</p><p>59100 Roubaix</p></div>";
 
     let affichePlace = document.querySelector("#maps");
 
     let map = new google.maps.Map(affichePlace, {
         zoom: 13,
-        center: offre1
+        center: offre2
     });
 
     let marker = new google.maps.Marker({
-        position: lacrImmo,
+        position: lacrImmoRoubaix,
         icon: '../src/img/icone-lacr-immo-26.png',
         map: map
     });
 
     let marker2 = new google.maps.Marker({
-        position: offre1,
+        position: offre2,
         icon: '../src/img/icone-home-26.png',
         map: map
     });
 
     let infos = new google.maps.InfoWindow({
         content: content,
-        position: lacrImmo
+        position: lacrImmoRoubaix
     });
 
     let infos2 = new google.maps.InfoWindow({
         content: content2,
-        position: offre1
+        position: offre2
     });
 
     marker.addListener("click", () => {
@@ -60,12 +51,12 @@ function initMap(listener) {
         infos2.open(map);
     });
 
-    // Itinéraire Agence - Offre
+    // Itinéraire Agence - Offre 2
     let directionsService = new google.maps.DirectionsService();
     let directionsDisplay = new google.maps.DirectionsRenderer({ 'map': map });
     let request = {
-        origin: lacrImmo,
-        destination: offre1,
+        origin: lacrImmoRoubaix,
+        destination: offre2,
         travelMode: google.maps.DirectionsTravelMode.DRIVING,
         unitSystem: google.maps.DirectionsUnitSystem.METRIC
     };
@@ -76,18 +67,6 @@ function initMap(listener) {
         }
     });
 }
-
-
-
-
 $(function () {
-    initMap();
-    
+    initMapRoubaix();
 });
-
-
-
-
-
-
-
