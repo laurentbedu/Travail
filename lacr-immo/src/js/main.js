@@ -30,4 +30,6 @@ $(function () {
     $("#btnOffre1, #btnOffre2, #btnOffre3").on("click", function () {
         document.location.href = "../view/contact.html";
     });
+
+
 });

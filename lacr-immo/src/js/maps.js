@@ -34,7 +34,8 @@ function initMap(listener) {
 
     let infos = new google.maps.InfoWindow({
         content: content,
-        position: lacrImmo
+        position: lacrImmo,
+        pixelOffset: new google.maps.Size(0,-30)
     });
 
     let infos2 = new google.maps.InfoWindow({
@@ -44,6 +45,14 @@ function initMap(listener) {
 
     marker.addListener("click", () => {
         infos.open(map);
+    });
+
+    marker.addListener("mouseover", () => {
+        infos.open(map);
+    });
+
+    marker.addListener("mouseout", () => {
+            infos.close(map);
     });
 
     marker2.addListener("click", () => {
@@ -69,7 +78,6 @@ function initMap(listener) {
 
 $(function () {
     initMap();
-    
 });
 
 
