@@ -17,105 +17,104 @@
 </head>
 
 <body>
-<header class="container-fluid">
-    <div class="row p-3 align-items-center bg-dark">
-        <div class="col">
-            <p><img src="../src/img/logo.png" alt="Logo du site"></p>
-            <h4 id="slogan" class="text-warning">Demain vous êtes chez vous !</h4>
+    <header class="container-fluid">
+        <div class="row p-3 align-items-center bg-dark">
+            <div class="col-md-2 text-center">
+                <p><img src="../src/img/logo.png" alt="Logo du site"></p>
+                <h4 id="slogan" class="text-warning">Demain vous êtes chez vous !</h4>
+            </div>
+            <div class="col-md-10">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link h2 text-warning" href="../index.html">ACCUEIL</a>
+                    </li>
+                    <li class="nav-item">
+                        <p class="nav-link h2 text-warning modalAgency" data-toggle="modal" data-target="#modalAgency">
+                            L'AGENCE</p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h2 text-warning" href="../view/contact.html">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="col">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link h2 text-warning" href="../index.html">ACCUEIL</a>
-                </li>
-                <li class="nav-item">
-                    <p class="nav-link h2 text-warning modalAgency" data-toggle="modal" data-target="#modalAgency">
-                        L'AGENCE</p>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link h2 text-warning" href="../view/contact.html">NOUS CONTACTER</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="row p-3">
-        <div class="col">
-            <h2>Découvrez<br>
-                nos offres</h2>
-        </div>
-        <div class="col-9">
-            <form>
-                <div class="form-row">
-                    <div class="col">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text bg-warning border border-warning"
-                                       for="achatLocation">Achat / Location</label>
-                            </div>
-                            <select class="custom-select border border-warning" id="achatLocation">
-                                <option value="achat">Achat</option>
-                                <option value="location">Location</option>
-                            </select>
+        <div class="row p-3 text-center">
+            <div class="col col-md-3">
+                <h2>Découvrez<br>
+                    nos offres</h2>
+            </div>
+            <div class="col-11 col-md-9 px-0">
+                <form>
+                    <div class="form-row">
+                        <div class="col-12 col-md-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text bg-warning border border-warning"
+                                        for="achatLocation">Achat / Location</label>
+                                </div>
+                                <select class="custom-select border border-warning" id="achatLocation">
+                                    <option value="achat">Achat</option>
+                                    <option value="location">Location</option>
+                                </select>
 
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text bg-warning border border-warning"
-                                       for="typeDeBien">Type de bien</label>
                             </div>
-                            <select class="custom-select border border-warning" id="typeDeBien">
-                                <option value="appartement">Appartement</option>
-                                <option value="maison">Maison</option>
-                            </select>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text bg-warning border border-warning"
-                                       for="localisation">Localisation</label>
+                        <div class="col-12 col-md-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text bg-warning border border-warning"
+                                        for="typeDeBien">Type de bien</label>
+                                </div>
+                                <select class="custom-select border border-warning" id="typeDeBien">
+                                    <option value="appartement">Appartement</option>
+                                    <option value="maison">Maison</option>
+                                </select>
                             </div>
-                            <select class="custom-select border border-warning" id="localisation">
-                                <option value="centreVille">Lievin</option>
-                                <option value="ecole">Roubaix</option>
-                                <option value="commerce">Tourcoing</option>
-                            </select>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text bg-warning border border-warning"
+                                        for="localisation">Localisation</label>
+                                </div>
+                                <select class="custom-select border border-warning" id="localisation">
+                                    <option value="centreVille">Lievin</option>
+                                    <option value="ecole">Roubaix</option>
+                                    <option value="commerce">Tourcoing</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <button type="text" class="btn btn-warning" id="recherche">Rechercher</button>
                         </div>
                     </div>
-                    <div class="col">
-                        <button type="text" class="btn btn-warning" id="recherche">Rechercher</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 <hr>
 <!-- Affichage carte Google MAP -->
 
-<div class="container-fluid mb-3">
+<div class="container-fluid mb-md-3">
     <div class="titre mb-5">
         <h2>Offre n°1 - Grande maison pavillonaire</h2>
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-6">
-            <div
-                    class="row p-3 bg-dark justify-content-center text-warning border border-warning shadow-lg rounded-lg">
+        <div class="col-md-6">
+            <div class="row p-md-3 bg-dark justify-content-center text-warning border border-warning shadow-lg rounded-lg">
 
-                <div class="col align-self-center">
+                <div class="col-md-4 align-self-center mt-3">
                     <p><img src="../src/img/maison1.jpg" class="img-thumbnail shadow-lg border border-warning"
                             alt="Photo maison 1" id="zoomImage"></p>
                 </div>
-                <div class="col">
+                <div class="col-md-3">
                     <h4>Offre n°1</h4>
                     <h4>Lievin</h4>
                     <p>Grande maison pavillonaire à proximité du centre et des écoles. Salon séjour de 18.5m²,
                         cuisine de 10.41m², salle de bains avec vasque et baignoire de 5.6... </p>
                 </div>
-                <div class="col">
+                <div class="col-md-3">
 
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -137,7 +136,7 @@
                 </div>
 
             </div>
-            <div class="row text-right my-3">
+            <div class="row text-md-right text-center my-3">
                 <div class="col">
                     <button type="button" class="btn btn-warning shadow-lg" id="btnOffre1">Cette offre
                         m'intéresse</button>
@@ -146,8 +145,8 @@
 
         </div>
 
-        <div class="col-5 border border-warning rounded-lg shadow-lg bg-dark">
-            <div class="m-3 text-center rounded-lg border border-warning shadow-lg" id="maps">
+        <div class="col-md-5 p-0 p-md-2 border border-warning rounded-lg shadow-lg bg-dark">
+            <div class="rounded-lg border border-warning shadow-lg" id="maps">
             </div>
         </div>
     </div>
@@ -155,14 +154,14 @@
 
 <!-- Footer -->
 <div class="container-fluid bg-dark p-4">
-    <ul class="nav justify-content-around">
+    <ul class="nav justify-content-around text-center">
         <li class="nav-item">
             <p class="nav-link h2 text-warning modalAgency" data-toggle="modal" data-target="#modalAgency">L'AGENCE
             </p>
         </li>
         <li class="nav-item">
             <p class="nav-link h2 text-warning modalLegalNotice" data-toggle="modal"
-               data-target="#modalLegalNotice">MENTIONS LEGALES</p>
+                data-target="#modalLegalNotice">MENTIONS LEGALES</p>
         </li>
         <li class="nav-item">
             <a class="nav-link h2 text-warning" href="../view/contact.html">NOUS CONTACTER</a>

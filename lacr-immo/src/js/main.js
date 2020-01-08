@@ -2,7 +2,7 @@ $(function () {
     // Initialisation CSS Body
     $("body").css({ "font-family": "'Poppins', Arial, sans-serif", "overflow-x": "hidden" });
     $("#slogan").css("font-family", "'Ma Shan Zheng', cursive, Arial, sans-serif");
-    $("#maps").css({ "width": "95%", "height": "400px" });
+    $("#maps").css({ "width": "100%", "height": "400px" });
 
     // Méthodes opacité sur "Agence" et "Mentions légales" au passage de la souris
     $(".modalAgency, .modalLegalNotice").on("mouseover", function () {

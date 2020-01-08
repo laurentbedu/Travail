@@ -10,8 +10,8 @@ function initMap(listener) {
         lng: 2.767052
     };
 
-        let content = "<div class='text-center'><h5>Agence Lacr Immo</h5> <p><img src='../src/img/slider-1.jpg' class='img-thumbnail shadow-lg w-75' alt='Image caroussel 1'></p><p>Rue du Mal Delattre de Tassigny</p><p>62100 Lievin</p></div>";
-    let content2 = "<div class='text-center'><h5>Offre n°1 - Grande maison pavillonaire</h5> <p><img src='../src/img/maison1.jpg' class='img-thumbnail shadow-lg w-75' alt='Photo maison 1'></p><p>41 Rue Henri Martin</p><p>62100 Lievin</p></div>";
+    let content = "<div class='text-center'><h5>Agence Lacr Immo</h5> <p><img src='../src/img/slider-1.jpg' class='img-thumbnail shadow-lg w-50' alt='Image caroussel 1'></p><p>Rue du Mal Delattre de Tassigny</p><p>62100 Lievin</p></div>";
+    let content2 = "<div class='text-center'><h5>Offre n°1 - Grande maison pavillonaire</h5> <p><img src='../src/img/maison1.jpg' class='img-thumbnail shadow-lg w-25' alt='Photo maison 1'></p><p>41 Rue Henri Martin</p><p>62100 Lievin</p></div>";
 
     let affichePlace = document.querySelector("#maps");
 
@@ -35,16 +35,13 @@ function initMap(listener) {
     let infos = new google.maps.InfoWindow({
         content: content,
         position: lacrImmo,
-        pixelOffset: new google.maps.Size(0,-30)
+        pixelOffset: new google.maps.Size(0, -30)
     });
 
     let infos2 = new google.maps.InfoWindow({
         content: content2,
-        position: offre1
-    });
-
-    marker.addListener("click", () => {
-        infos.open(map);
+        position: offre1,
+        pixelOffset: new google.maps.Size(0, -30)
     });
 
     marker.addListener("mouseover", () => {
@@ -52,11 +49,15 @@ function initMap(listener) {
     });
 
     marker.addListener("mouseout", () => {
-            infos.close(map);
+        infos.close(map);
     });
 
-    marker2.addListener("click", () => {
+    marker2.addListener("mouseover", () => {
         infos2.open(map);
+    });
+
+    marker2.addListener("mouseout", () => {
+        infos2.close(map);
     });
 
     // Itinéraire Agence - Offre

@@ -35,20 +35,30 @@ function initMapTourcoing(listener) {
 
     let infos = new google.maps.InfoWindow({
         content: content,
-        position: lacrImmoTourcoing
+        position: lacrImmoTourcoing,
+        pixelOffset: new google.maps.Size(0, -30)
     });
 
     let infos2 = new google.maps.InfoWindow({
         content: content2,
-        position: offre3
+        position: offre3,
+        pixelOffset: new google.maps.Size(0, -30)
     });
 
-    marker.addListener("click", () => {
+    marker.addListener("mouseover", () => {
         infos.open(map);
     });
 
-    marker2.addListener("click", () => {
+    marker.addListener("mouseout", () => {
+        infos.close(map);
+    });
+
+    marker2.addListener("mouseover", () => {
         infos2.open(map);
+    });
+
+    marker2.addListener("mouseout", () => {
+        infos2.close(map);
     });
 
     // Itinéraire Agence - Offre 2
