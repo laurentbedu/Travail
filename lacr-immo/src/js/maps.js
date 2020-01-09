@@ -6,7 +6,7 @@ function initMap(listener) {
     };
 
     let offre1 = {
-        lat: 50.416815,
+        lat: 50.41615,
         lng: 2.767052
     };
 
