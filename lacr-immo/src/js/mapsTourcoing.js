@@ -11,8 +11,8 @@ function initMapTourcoing(listener) {
         lng: 3.150666
     }; // 31 Rue de Roncq, 59200 Tourcoing
 
-    let content = "<div class='text-center'><h5>Agence Lacr Immo</h5> <p><img src='../src/img/slider-1.jpg' class='img-thumbnail shadow-lg w-75' alt='Image caroussel 1'></p><p>51-33 Rue de la Cloche</p><p>59200 Tourcoing</p></div>";
-    let content2 = "<div class='text-center'><h5>Offre n°3 - Appartement spacieux et lumineux</h5> <p><img src='../src/img/appartement1.jpg' class='img-thumbnail shadow-lg w-75' alt='Photo appartement 1'></p><p>31 Rue de Roncq</p><p>59200 Tourcoing</p></div>";
+    let content = "<div class='text-center'><h5>Agence Lacr Immo</h5> <p><img src='../src/img/slider-1.jpg' class='img-thumbnail shadow-lg w-50' alt='Image caroussel 1'></p><p>51-33 Rue de la Cloche</p><p>59200 Tourcoing</p></div>";
+    let content2 = "<div class='text-center'><h5>Offre n°3 - Appartement spacieux et lumineux</h5> <p><img src='../src/img/appartement1.jpg' class='img-thumbnail shadow-lg w-25' alt='Photo appartement 1'></p><p>31 Rue de Roncq</p><p>59200 Tourcoing</p></div>";
 
     let affichePlace = document.querySelector("#maps");
 
