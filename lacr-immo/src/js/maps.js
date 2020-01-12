@@ -1,89 +1,80 @@
-function initMap(listener) {
-    // les coordonnées de l'agence
-    let lacrImmo = {
-        lat: 50.4245,
-        lng: 2.7738
-    };
+// Script d'affichage de la carte openStreetMap
 
-    let offre1 = {
-        lat: 50.41615,
-        lng: 2.767052
-    };
+// On initialise la latitude et la longitude de l'Agence et du bien
+let latAgence = 50.4245;
+let lonAgence = 2.7738;
+let latBien = 50.41615;
+let lonBien = 2.767052;
+let macarte = null;
 
-    let content = "<div class='text-center'><h5>Agence Lacr Immo</h5> <p><img src='../src/img/slider-1.jpg' class='img-thumbnail shadow-lg w-50' alt='Image caroussel 1'></p><p>Rue du Mal Delattre de Tassigny</p><p>62100 Lievin</p></div>";
-    let content2 = "<div class='text-center'><h5>Offre n°1 - Grande maison pavillonaire</h5> <p><img src='../src/img/maison1.jpg' class='img-thumbnail shadow-lg w-25' alt='Photo maison 1'></p><p>41 Rue Henri Martin</p><p>62100 Lievin</p></div>";
+// Fonction d'initialisation de la carte
+function initMap() {
 
-    let affichePlace = document.querySelector("#maps");
+    // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+    macarte = L.map('maps').setView([latAgence, lonAgence], 10);
 
-    let map = new google.maps.Map(affichePlace, {
-        zoom: 13,
-        center: offre1
+    // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+        // Il est toujours bien de laisser le lien vers la source des données
+        attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>&nbsp&nbsp',
+        minZoom: 10,
+        maxZoom: 18
+    }).addTo(macarte);
+
+    L.Routing.control({
+        show: false, // n'affiche pas l'itinéraire
+        language: 'fr',
+		formatter: new L.Routing.Formatter({
+			language: 'fr' 
+		}),
+
+        // Itinéraire
+        waypoints: [
+          L.latLng(latAgence, lonAgence),
+          L.latLng(latBien, lonBien)
+        ]
+      }).addTo(macarte);
+
+    // Marqueur agence
+    let iconeAgence = L.icon({
+        iconUrl: '../src/img/icone-lacr-immo.png',
+        iconSize: [65, 65],
+        iconAnchor: [32, 60],
+        popupAnchor: [-1, -60]
     });
 
-    let marker = new google.maps.Marker({
-        position: lacrImmo,
-        icon: '../src/img/icone-lacr-immo-26.png',
-        map: map
+    let markerAgence = L.marker([latAgence, lonAgence], {icon: iconeAgence}).addTo(macarte);
+    
+    markerAgence.on("mouseover", () => {
+        markerAgence.bindPopup("<div class='text-center'><h5>Agence Lacr Immo</h5> <p><img src='../src/img/slider-1.jpg' class='img-thumbnail shadow-lg' alt='Image caroussel 1'></p><p>Rue du Mal Delattre de Tassigny</p><p>62100 Lievin</p></div>").openPopup();
     });
 
-    let marker2 = new google.maps.Marker({
-        position: offre1,
-        icon: '../src/img/icone-home-26.png',
-        map: map
+    markerAgence.on("mouseout", () => {
+        markerAgence.closePopup();
     });
 
-    let infos = new google.maps.InfoWindow({
-        content: content,
-        position: lacrImmo,
-        pixelOffset: new google.maps.Size(0, -30)
+    // Marqueur Bien
+    let iconeBien = L.icon({
+        iconUrl: '../src/img/icone-bien.png',
+        iconSize: [65, 65],
+        iconAnchor: [32, 60],
+        popupAnchor: [-1, -60]
     });
 
-    let infos2 = new google.maps.InfoWindow({
-        content: content2,
-        position: offre1,
-        pixelOffset: new google.maps.Size(0, -30)
+
+    let markerBien = L.marker([latBien, lonBien], {icon: iconeBien}).addTo(macarte);
+    
+    markerBien.on("mouseover", () => {
+        markerBien.bindPopup("<div class='text-center'><h5>Offre n°1 - Grande maison pavillonaire</h5> <p><img src='../src/img/maison1.jpg' class='img-thumbnail shadow-lg w-25' alt='Photo maison 1'></p><p>41 Rue Henri Martin</p><p>62100 Lievin</p></div>").openPopup();
     });
 
-    marker.addListener("mouseover", () => {
-        infos.open(map);
+    markerBien.on("mouseout", () => {
+        markerBien.closePopup();
     });
-
-    marker.addListener("mouseout", () => {
-        infos.close(map);
-    });
-
-    marker2.addListener("mouseover", () => {
-        infos2.open(map);
-    });
-
-    marker2.addListener("mouseout", () => {
-        infos2.close(map);
-    });
-
-    // Itinéraire Agence - Offre
-    let directionsService = new google.maps.DirectionsService();
-    let directionsDisplay = new google.maps.DirectionsRenderer({ 'map': map });
-    let request = {
-        origin: lacrImmo,
-        destination: offre1,
-        travelMode: google.maps.DirectionsTravelMode.DRIVING,
-        unitSystem: google.maps.DirectionsUnitSystem.METRIC
-    };
-    directionsService.route(request, function (response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(response);
-            directionsDisplay.setOptions({ 'suppressMarkers': true });
-        }
-    });
+    
 }
 
 $(function () {
+    // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
     initMap();
 });
-
-
-
-
-
-
-

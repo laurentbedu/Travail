@@ -10,6 +10,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../src/css/bootstrap.min.css">
 
+    <!-- openStreetMap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
@@ -102,19 +106,19 @@
 
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="row p-md-3 bg-dark justify-content-center text-warning border border-warning shadow-lg rounded-lg">
+            <div class="row p-md-3 bg-dark justify-content-around text-warning border border-warning shadow-lg rounded-lg">
 
-                <div class="col-md-4 align-self-center mt-3">
+                <div class="col-md-4 align-self-center mt-2">
                     <p><img src="../src/img/maison1.jpg" class="img-thumbnail shadow-lg border border-warning"
                             alt="Photo maison 1" id="zoomImage"></p>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <h4>Offre n°1</h4>
                     <h4>Lievin</h4>
                     <p>Grande maison pavillonaire à proximité du centre et des écoles. Salon séjour de 18.5m²,
                         cuisine de 10.41m², salle de bains avec vasque et baignoire de 5.6... </p>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
 
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -145,7 +149,7 @@
 
         </div>
 
-        <div class="col-md-5 p-0 p-md-2 border border-warning rounded-lg shadow-lg bg-dark">
+        <div class="col-md-6 p-0 p-md-2 border border-warning rounded-lg shadow-lg bg-dark">
             <div class="rounded-lg border border-warning shadow-lg" id="maps">
             </div>
         </div>
@@ -250,19 +254,24 @@
 
 <script src="../src/js/jquery-3.4.1.min.js"></script>
 
+<!--
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-Q8-xZAvhbFCoWYWh0gv02z36JFqDCVg&callback=initMap">
 </script>
-
+-->
 <script src="../src/js/popper.min.js"></script>
 
 <script src="../src/js/bootstrap.min.js"></script>
 
 <script src="../src/js/main.js"></script>
 
-<script src="../src/js/maps.js"></script>
-
 <script src="../src/js/zoomImage.js"></script>
+
+<!-- openStreetMap JS -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+<script async src="../src/js/maps.js"></script>
 
 
 </body>
