@@ -1,5 +1,5 @@
 function initMap(listener) {
-    // les coordonnées
+    // les coordonnées de l'agence
     let lacrImmo = {
         lat: 50.4245,
         lng: 2.7738
