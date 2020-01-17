@@ -17,6 +17,7 @@ $(function () {
         $(this).css("opacity", "1");
     });
 
+    // Redirection au clic sur les différentes pages
     $("#offreOne").on("click", function () {
         document.location.href = "view/offre-one.html";
     });
