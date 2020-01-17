@@ -43,7 +43,7 @@ function initMap() {
           L.latLng(latAgence, lonAgence),
           L.latLng(latBien, lonBien)
         ]
-      }).addTo(macarte);
+      }).addTo(macarte); 
 
     // Ajout du marqueur Agence
     let iconeAgence = L.icon({
