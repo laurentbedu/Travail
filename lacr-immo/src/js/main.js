@@ -32,5 +32,4 @@ $(function () {
         document.location.href = "../view/contact.html";
     });
 
-
 });
