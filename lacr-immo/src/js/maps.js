@@ -28,22 +28,30 @@ function initMap() {
         maxZoom: 18
     }).addTo(macarte);
 
-    // Paramètres
-    L.Routing.control({
-        show: false, // n'affiche pas l'itinéraire
+// Paramètres
+L.Routing.control({
 
-        // Langage FR de préférence, mais plusieurs langages sont dispos
-        language: 'fr',
-		formatter: new L.Routing.Formatter({
-			language: 'fr' 
-		}),
+// Langage FR de préférence, mais plusieurs langages sont dispos
+language: 'fr',
+formatter: new L.Routing.Formatter({
+language: 'fr'
+}),
 
-        // Itinéraire
-        waypoints: [
-          L.latLng(latAgence, lonAgence),
-          L.latLng(latBien, lonBien)
-        ]
-      }).addTo(macarte); 
+// Itinéraire
+waypoints: [
+L.latLng(latAgence, lonAgence),
+L.latLng(latBien, lonBien)
+],
+
+// N'affiche pas les marqueurs bleus de l'API Routing
+createMarker: function(){
+    return false;
+},
+
+//show: false, // n'affiche pas l'itinéraire
+show: false
+}).addTo(macarte);
+
 
     // Ajout du marqueur Agence
     let iconeAgence = L.icon({
@@ -82,10 +90,11 @@ function initMap() {
     markerBien.on("mouseout", () => {
         markerBien.closePopup();
     });
-    
+
+        
 }
 
 $(function () {
-    // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+    // Fonction d'initialisation qui s'exécute lorsque le traitement est fini
     initMap();
 });
