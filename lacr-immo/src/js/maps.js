@@ -90,8 +90,6 @@ show: false
     markerBien.on("mouseout", () => {
         markerBien.closePopup();
     });
-
-        
 }
 
 $(function () {
