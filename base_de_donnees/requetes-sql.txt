@@ -8,13 +8,15 @@ CREATE DATABASE blog DEFAULT CHARACTER SET=utf8;
 USE blog;
 
 -- Suppression de Table
+DROP TABLE IF EXISTS Jaime;
+DROP TABLE IF EXISTS Commentaire;
+DROP TABLE IF EXISTS Articles;
 DROP TABLE IF EXISTS Utilisateur;
 DROP TABLE IF EXISTS TypeUtilisateur;
 DROP TABLE IF EXISTS Statut;
 DROP TABLE IF EXISTS Categorie;
 DROP TABLE IF EXISTS TypeMedia;
-DROP TABLE IF EXISTS Commentaire;
-DROP TABLE IF EXISTS Articles;
+DROP TABLE IF EXISTS Media;
 
 -- Création Table TypeUtilisateur
 CREATE TABLE TypeUtilisateur(idTypeUtilisateur INT NOT NULL AUTO_INCREMENT,
@@ -25,10 +27,11 @@ ENGINE=innoDB;
 -- Création Table Utilisateur avec clé étrangère TypeUtilisateur
 CREATE TABLE Utilisateur(idUtilisateur INT NOT NULL AUTO_INCREMENT,
 login VARCHAR(255) NOT NULL,
+nom VARCHAR(50) NOT NULL,
+prenom VARCHAR(50) NOT NULL,
 dateNaissance DATE NULL,
 motDePasse VARCHAR(20) NOT NULL,
 PRIMARY KEY(idUtilisateur),
-
 typeUtilisateur INT,
 FOREIGN KEY(typeUtilisateur)
 REFERENCES TypeUtilisateur(idTypeUtilisateur))
@@ -44,7 +47,6 @@ ENGINE=innoDB;
 CREATE TABLE Categorie(idCategorie INT NOT NULL AUTO_INCREMENT,
 typeCategorie VARCHAR(255) NOT NULL,
 PRIMARY KEY(idCategorie),
-
 sousCategorie INT,
 FOREIGN KEY(sousCategorie)
 REFERENCES Categorie(idCategorie))
@@ -85,7 +87,74 @@ FOREIGN KEY(categorie)
 REFERENCES Categorie(idCategorie))
 ENGINE=innoDB;
 
+-- Création Table Jaime
+CREATE TABLE Jaime(idJaime INT NOT NULL AUTO_INCREMENT,
+PRIMARY KEY(idJaime),
+auteur INT,
+FOREIGN KEY(auteur)
+REFERENCES Utilisateur(idUtilisateur),
+article INT,
+FOREIGN KEY(article)
+REFERENCES Article(idArticle),
+commentaire INT,
+FOREIGN KEY(commentaire)
+REFERENCES Commentaire(idCommentaire))
+ENGINE=innoDB;
 
+-- Création Table Media
+CREATE TABLE Media(idMedia INT NOT NULL AUTO_INCREMENT,
+cheminMedia VARCHAR(255) NOT NULL,
+dateCreationMedia DATE,
+PRIMARY KEY(idMedia),
+typeMedia INT,
+FOREIGN KEY(typeMedia)
+REFERENCES TypeMedia(idTypeMedia),
+auteur INT,
+FOREIGN KEY(auteur)
+REFERENCES Utilisateur(idUtilisateur))
+ENGINE=innoDB;
 
+-- Création Table Article_Media
+CREATE TABLE Article_Media(idArticleMedia INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(idArticleMedia),
+media INT,
+FOREIGN KEY(media)
+REFERENCES Media(idMedia),
+article INT,
+FOREIGN KEY(article)
+REFERENCES Article(idArticle))
+ENGINE=innoDB;
 
+-- Insertion des types de statut
+INSERT INTO Statut(libelleStatut) VALUES("Publié");
+INSERT INTO Statut(libelleStatut) VALUES("Brouillon");
+INSERT INTO Statut(libelleStatut) VALUES("Non publié");
+INSERT INTO Statut(libelleStatut) VALUES("En attente de validation");
 
+-- Insertion type utilisateur inscrit, contributeur, administrateur
+INSERT INTO TypeUtilisateur(libelleType) VALUES("Inscrit");
+INSERT INTO TypeUtilisateur(libelleType) VALUES("Contributeur");
+INSERT INTO TypeUtilisateur(libelleType) VALUES("Administrateur");
+
+-- Insertion type media image, video
+INSERT INTO TypeMedia(libelleType) VALUES("Image");
+INSERT INTO TypeMedia(libelleType) VALUES("Video");
+INSERT INTO TypeMedia(libelleType) VALUES("Document");
+
+-- Update le type utilisateur d'inscrit à visiteur
+UPDATE TypeUtilisateur SET libelletype = "Visiteur" WHERE libelletype = "Inscrit";
+
+-- Suppression dans Statut de "En attente de validation"
+DELETE FROM Statut WHERE libelleStatut = "En attente de validation";
+
+-- Selectionner tout dans TypeMedia
+SELECT * from TypeMedia;
+
+-- Le nombre de Statut dans la table Statut
+SELECT COUNT(*) FROM Statut;
+
+-- Création d'un alias
+SELECT COUNT(*) AS "Nombre de statuts" FROM Statut;
+
+-- Création Utilisateur
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("ThierryDev62", "BROUET", "Thierry", "1970-09-07", "titi", 3);
