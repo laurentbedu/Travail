@@ -50,3 +50,5 @@ UPDATE Article SET Titre = REPLACE(Titre, "U", "A");
 
 -- Suppression les utilisateurs qui n'ont pas publié d'article et de commentaire
 DELETE FROM Utilisateur WHERE idUtilisateur NOT IN(SELECT auteur FROM Article) AND idUtilisateur NOT IN(SELECT auteur FROM Commentaire);
+
+-- Afficher le titre, description et le nom de l'auteur des articles publiés par un administrateur
