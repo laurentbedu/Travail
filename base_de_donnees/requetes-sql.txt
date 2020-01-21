@@ -158,3 +158,27 @@ SELECT COUNT(*) AS "Nombre de statuts" FROM Statut;
 -- Création Utilisateur
 INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
 VALUES ("ThierryDev62", "BROUET", "Thierry", "1970-09-07", "titi", 3);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("Didine", "BROUET", "Amandine", "1984-11-28", "didine", 3);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("Titi", "BROUET", "Théo", "2002-01-22", "trankiloubilou", 2);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("Choukouyaya", "BROUET", "Yaëlle", "2010-12-12", "choukou", 2);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("Bounie", "BROUET", "Charlye", "2012-05-18", "bouniedu62", 1);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("Pipite", "BROUET", "Lya", "2015-07-13", "pipitou", 1);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("ludo", "BROUET", "Ludovic", "1981-08-15", "perenos", 1);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("laurette", "DEVENDEVILLE", "Laure", "1978-03-01", "lasoeur", 1);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("lili", "BROUET", "Liliane", "1947-09-28", "lamère", 1);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("jc", "BROUET", "Jean-Claude", "1947-04-21", "lepère", 1);
+
+-- Liste des utilisateurs par ordre alphabétique
+SELECT * FROM Utilisateur ORDER BY login ASC;
+
+-- Liste des utilisateurs par date de naissance du plus jeune au plus vieux
+SELECT * FROM Utilisateur ORDER BY dateNaissance DESC;
