@@ -1,0 +1,78 @@
+-- Insertion des types de statut
+INSERT INTO Statut(libelleStatut) VALUES("Publié");
+INSERT INTO Statut(libelleStatut) VALUES("Brouillon");
+INSERT INTO Statut(libelleStatut) VALUES("Non publié");
+INSERT INTO Statut(libelleStatut) VALUES("En attente de validation");
+
+-- Insertion type utilisateur inscrit, contributeur, administrateur
+INSERT INTO TypeUtilisateur(libelleType) VALUES("Inscrit");
+INSERT INTO TypeUtilisateur(libelleType) VALUES("Contributeur");
+INSERT INTO TypeUtilisateur(libelleType) VALUES("Administrateur");
+
+-- Insertion type media image, video
+INSERT INTO TypeMedia(libelleType) VALUES("Image");
+INSERT INTO TypeMedia(libelleType) VALUES("Video");
+INSERT INTO TypeMedia(libelleType) VALUES("Document");
+
+-- Création Utilisateur
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("ThierryDev62", "BROUET", "Thierry", "1970-09-07", "titi", 3);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("Didine", "BROUET", "Amandine", "1984-11-28", "didine", 3);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("Titi", "BROUET", "Théo", "2002-01-22", "trankiloubilou", 2);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("Choukouyaya", "BROUET", "Yaëlle", "2010-12-12", "choukou", 2);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("Bounie", "BROUET", "Charlye", "2012-05-18", "bouniedu62", 1);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("Pipite", "BROUET", "Lya", "2015-07-13", "pipitou", 1);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("ludo", "BROUET", "Ludovic", "1981-08-15", "perenos", 1);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("laurette", "DEVENDEVILLE", "Laure", "1978-03-01", "lasoeur", 1);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("lili", "BROUET", "Liliane", "1947-09-28", "lamère", 1);
+INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
+VALUES ("jc", "BROUET", "Jean-Claude", "1947-04-21", "lepère", 1);
+
+-- Création Categorie Météo
+INSERT INTO Categorie(typeCategorie) VALUES ("Météo");
+
+-- Création sous-categorie Météo
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("France", "2");
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("Allemagne", "2");
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("Angleterre", "2");
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("Italie", "2");
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("Belgique", "2");
+
+-- Création sous-categorie France
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("Hauts de France", "3");
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("Aquitaine", "3");
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("Provence Côte d'azur", "3");
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("Vendée", "3");
+
+-- Création Categorie Bourse
+INSERT INTO Categorie(typeCategorie) VALUES ("Bourse");
+
+-- Création sous-categorie Bourse
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("France", "8");
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("Allemagne", "8");
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("Angleterre", "8");
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("Italie", "8");
+INSERT INTO Categorie(typeCategorie, sousCategorie) VALUES ("Belgique", "8");
+
+-- Création Categorie Potin
+INSERT INTO Categorie(typeCategorie) VALUES ("Potin");
+
+-- Création article
+INSERT INTO Article(titre, dateConception, description, texte, auteur, statut, categorie) VALUES ("Tremblement de terre à Lille", NOW(), "Des Milliers de morts", "Hier soir vers 22h00, un tremblement de terre a surgit à Lille.", "1", "1", "2");
+INSERT INTO Article(titre, dateConception, dateModification, description, texte, auteur, statut, categorie) VALUES ("Un alien apperçu sur le terril de Liévin", "2019-10-21", NOW(), "Des centaines de témoins", "Hier soir vers 22h00, un alien a été apperçu sur le terril de Liévin.", "2", "1", "18");
+INSERT INTO Article(titre, dateConception, description, texte, auteur, statut, categorie) VALUES ("Une température de -50° ressentie à Libercourt", NOW(), "Des habitants inquiets", "Hier soir vers 22h00, une chute radicale de la température a été ressentie à Libercourt. Météo France invite la population de la ville a rester chez elle.", "2", "1", "2");
+INSERT INTO Article(titre, dateConception, description, texte, auteur, statut, categorie) VALUES ("Une ferme élève des puces à Aubigny en Artois", NOW(), "Un éleveur heureux", "Serge Plantin, éleveur de puces à Aubigny en Artois s'apprête à agrandir ses locaux car son élevage prend de l'ampleur.", "1", "2", "18");
+INSERT INTO Article(titre, dateConception, description, texte, auteur, statut, categorie) VALUES ("Un enfant de 5 ans a obtenu son BAC", NOW(), "Ses parents sont heureux pour lui", "Incroyable, Adam, 5 ans, habitant Libercourt, a obtenu son BAC avec mention très bien. Sa maman a dit \"Maman est fier de toi mon coeur !\"", "2", "1", "2");
+INSERT INTO Article(titre, dateConception, description, texte, auteur, statut, categorie) VALUES ("Un petit singe vient d'écrire son premier livre", NOW(), "Il a obtenu le Prix Pulitzer", "Cacahuette, un petit oustiti a écrit son premier livre intitulé : \"OUaaa aaa aaa aaa\".", "2", "1", "3");
+INSERT INTO Article(titre, dateConception, description, texte, auteur, statut, categorie) VALUES ("Le gène de l'immortalité enfin découvers chez l'homme", NOW(), "Mais avec de nombreuses contraintes", "Des scientifiques du Zimbabwe ont découvert le génôme de l'immortalité, mais à quel prix. En effet, celui-ci entraîne une incontinance sévère ainsi qu'une flatulence nauséabonde sans malheureusement de solution de traitement.", "1", "1", "18");
+INSERT INTO Article(titre, dateConception, description, texte, auteur, statut, categorie) VALUES ("Chuck Norris a traversé la ceinture de Kuiper en un saut", NOW(), "Sans effort", "Extraordinaire, incroyable, il n'existe aucun mot pour décrire cette exploit réalisé par notre légendaire Chuck Norris. Celui-ci a d'ailleurs commenté : \"Il n'y a rien d'intéressant là-bas.\"", "2", "3", "18");
+INSERT INTO Article(titre, dateConception, description, texte, auteur, statut, categorie) VALUES ("Un hacker pirate le Vatican", NOW(), "Des millions de croyant choqués", "Après une attaque cybernétique, le Vatican représenté par le Pape François, a décidé de contre-attaquer...", "1", "1", "18");
+INSERT INTO Article(titre, dateConception, description, texte, auteur, statut, categorie) VALUES ("Un vrai dinosaure en couveuse", NOW(), "Une catastrophe en devenir ?", "Après l'ère Jurassic Park et World, cette fois-ci ce n'est plus du cinéma mais la réalité. Mais est-ce que ça va passer comme dans les films ?", "1", "3", "18");  

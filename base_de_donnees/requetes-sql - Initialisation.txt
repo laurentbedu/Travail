@@ -1,0 +1,125 @@
+-- Suppression de la Base si elle existe
+DROP DATABASE IF EXISTS blog;
+
+-- Création de la base blog
+CREATE DATABASE blog DEFAULT CHARACTER SET=utf8;
+
+-- On utilise la base blog
+USE blog;
+
+-- Suppression de Table
+DROP TABLE IF EXISTS Jaime;
+DROP TABLE IF EXISTS Commentaire;
+DROP TABLE IF EXISTS Articles;
+DROP TABLE IF EXISTS Utilisateur;
+DROP TABLE IF EXISTS TypeUtilisateur;
+DROP TABLE IF EXISTS Statut;
+DROP TABLE IF EXISTS Categorie;
+DROP TABLE IF EXISTS TypeMedia;
+DROP TABLE IF EXISTS Media;
+
+-- Création Table TypeUtilisateur
+CREATE TABLE TypeUtilisateur(idTypeUtilisateur INT NOT NULL AUTO_INCREMENT,
+libelleType VARCHAR(255),
+PRIMARY KEY(idTypeUtilisateur))
+ENGINE=innoDB;
+
+-- Création Table Utilisateur avec clé étrangère TypeUtilisateur
+CREATE TABLE Utilisateur(idUtilisateur INT NOT NULL AUTO_INCREMENT,
+login VARCHAR(255) NOT NULL,
+nom VARCHAR(50) NOT NULL,
+prenom VARCHAR(50) NOT NULL,
+dateNaissance DATE NULL,
+motDePasse VARCHAR(20) NOT NULL,
+PRIMARY KEY(idUtilisateur),
+typeUtilisateur INT,
+FOREIGN KEY(typeUtilisateur)
+REFERENCES TypeUtilisateur(idTypeUtilisateur))
+ENGINE=innoDB;
+
+-- Création Table Statut
+CREATE TABLE Statut(idStatut INT NOT NULL AUTO_INCREMENT,
+libelleStatut VARCHAR(255),
+PRIMARY KEY(idStatut))
+ENGINE=innoDB;
+
+-- Création Table Categorie avec clé étrangère SousCategorie
+CREATE TABLE Categorie(idCategorie INT NOT NULL AUTO_INCREMENT,
+typeCategorie VARCHAR(255) NOT NULL,
+PRIMARY KEY(idCategorie),
+sousCategorie INT,
+FOREIGN KEY(sousCategorie)
+REFERENCES Categorie(idCategorie))
+ENGINE=innoDB;
+
+-- Création Table TypeMedia
+CREATE TABLE TypeMedia(idTypeMedia INT NOT NULL AUTO_INCREMENT,
+libelleType VARCHAR(20) NOT NULL,
+PRIMARY KEY(idTypeMedia))
+ENGINE=innoDB;
+
+-- Création Table Commentaire
+CREATE TABLE Commentaire(idCommentaire INT NOT NULL AUTO_INCREMENT,
+texte TEXT NOT NULL,
+dateCreation DATE NOT NULL,
+PRIMARY KEY(idCommentaire),
+auteur INT,
+FOREIGN KEY(auteur)
+REFERENCES Utilisateur(idUtilisateur))
+ENGINE=innoDB;
+
+-- Création Table Article
+CREATE TABLE Article(idArticle INT NOT NULL AUTO_INCREMENT,
+titre VARCHAR(45) NOT NULL,
+dateConception DATE NOT NULL,
+dateModification DATE NOT NULL,
+description TEXT,
+texte TEXT,
+PRIMARY KEY(idArticle),
+auteur INT,
+FOREIGN KEY(auteur)
+REFERENCES Utilisateur(idUtilisateur),
+statut INT,
+FOREIGN KEY(statut)
+REFERENCES Statut(idStatut),
+categorie INT,
+FOREIGN KEY(categorie)
+REFERENCES Categorie(idCategorie))
+ENGINE=innoDB;
+
+-- Création Table Jaime
+CREATE TABLE Jaime(idJaime INT NOT NULL AUTO_INCREMENT,
+PRIMARY KEY(idJaime),
+auteur INT,
+FOREIGN KEY(auteur)
+REFERENCES Utilisateur(idUtilisateur),
+article INT,
+FOREIGN KEY(article)
+REFERENCES Article(idArticle),
+commentaire INT,
+FOREIGN KEY(commentaire)
+REFERENCES Commentaire(idCommentaire))
+ENGINE=innoDB;
+
+-- Création Table Media
+CREATE TABLE Media(idMedia INT NOT NULL AUTO_INCREMENT,
+cheminMedia VARCHAR(255) NOT NULL,
+dateCreationMedia DATE,
+PRIMARY KEY(idMedia),
+typeMedia INT,
+FOREIGN KEY(typeMedia)
+REFERENCES TypeMedia(idTypeMedia),
+auteur INT,
+FOREIGN KEY(auteur)
+REFERENCES Utilisateur(idUtilisateur))
+ENGINE=innoDB;
+
+-- Création Table Article_Media
+CREATE TABLE Article_Media(idArticleMedia INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(idArticleMedia),
+media INT,
+FOREIGN KEY(media)
+REFERENCES Media(idMedia),
+article INT,
+FOREIGN KEY(article)
+REFERENCES Article(idArticle))
+ENGINE=innoDB;

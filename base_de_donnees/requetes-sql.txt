@@ -1,145 +1,3 @@
--- Suppression de la Base si elle existe
-DROP DATABASE IF EXISTS blog;
-
--- Création de la base blog
-CREATE DATABASE blog DEFAULT CHARACTER SET=utf8;
-
--- On utilise la base blog
-USE blog;
-
--- Suppression de Table
-DROP TABLE IF EXISTS Jaime;
-DROP TABLE IF EXISTS Commentaire;
-DROP TABLE IF EXISTS Articles;
-DROP TABLE IF EXISTS Utilisateur;
-DROP TABLE IF EXISTS TypeUtilisateur;
-DROP TABLE IF EXISTS Statut;
-DROP TABLE IF EXISTS Categorie;
-DROP TABLE IF EXISTS TypeMedia;
-DROP TABLE IF EXISTS Media;
-
--- Création Table TypeUtilisateur
-CREATE TABLE TypeUtilisateur(idTypeUtilisateur INT NOT NULL AUTO_INCREMENT,
-libelleType VARCHAR(255),
-PRIMARY KEY(idTypeUtilisateur))
-ENGINE=innoDB;
-
--- Création Table Utilisateur avec clé étrangère TypeUtilisateur
-CREATE TABLE Utilisateur(idUtilisateur INT NOT NULL AUTO_INCREMENT,
-login VARCHAR(255) NOT NULL,
-nom VARCHAR(50) NOT NULL,
-prenom VARCHAR(50) NOT NULL,
-dateNaissance DATE NULL,
-motDePasse VARCHAR(20) NOT NULL,
-PRIMARY KEY(idUtilisateur),
-typeUtilisateur INT,
-FOREIGN KEY(typeUtilisateur)
-REFERENCES TypeUtilisateur(idTypeUtilisateur))
-ENGINE=innoDB;
-
--- Création Table Statut
-CREATE TABLE Statut(idStatut INT NOT NULL AUTO_INCREMENT,
-libelleStatut VARCHAR(255),
-PRIMARY KEY(idStatut))
-ENGINE=innoDB;
-
--- Création Table Categorie avec clé étrangère SousCategorie
-CREATE TABLE Categorie(idCategorie INT NOT NULL AUTO_INCREMENT,
-typeCategorie VARCHAR(255) NOT NULL,
-PRIMARY KEY(idCategorie),
-sousCategorie INT,
-FOREIGN KEY(sousCategorie)
-REFERENCES Categorie(idCategorie))
-ENGINE=innoDB;
-
--- Création Table TypeMedia
-CREATE TABLE TypeMedia(idTypeMedia INT NOT NULL AUTO_INCREMENT,
-libelleType VARCHAR(20) NOT NULL,
-PRIMARY KEY(idTypeMedia))
-ENGINE=innoDB;
-
--- Création Table Commentaire
-CREATE TABLE Commentaire(idCommentaire INT NOT NULL AUTO_INCREMENT,
-texte TEXT NOT NULL,
-dateCreation DATE NOT NULL,
-PRIMARY KEY(idCommentaire),
-auteur INT,
-FOREIGN KEY(auteur)
-REFERENCES Utilisateur(idUtilisateur))
-ENGINE=innoDB;
-
--- Création Table Article
-CREATE TABLE Article(idArticle INT NOT NULL AUTO_INCREMENT,
-titre VARCHAR(45) NOT NULL,
-dateConception DATE NOT NULL,
-dateModification DATE NOT NULL,
-description TEXT,
-texte TEXT,
-PRIMARY KEY(idArticle),
-auteur INT,
-FOREIGN KEY(auteur)
-REFERENCES Utilisateur(idUtilisateur),
-statut INT,
-FOREIGN KEY(statut)
-REFERENCES Statut(idStatut),
-categorie INT,
-FOREIGN KEY(categorie)
-REFERENCES Categorie(idCategorie))
-ENGINE=innoDB;
-
--- Création Table Jaime
-CREATE TABLE Jaime(idJaime INT NOT NULL AUTO_INCREMENT,
-PRIMARY KEY(idJaime),
-auteur INT,
-FOREIGN KEY(auteur)
-REFERENCES Utilisateur(idUtilisateur),
-article INT,
-FOREIGN KEY(article)
-REFERENCES Article(idArticle),
-commentaire INT,
-FOREIGN KEY(commentaire)
-REFERENCES Commentaire(idCommentaire))
-ENGINE=innoDB;
-
--- Création Table Media
-CREATE TABLE Media(idMedia INT NOT NULL AUTO_INCREMENT,
-cheminMedia VARCHAR(255) NOT NULL,
-dateCreationMedia DATE,
-PRIMARY KEY(idMedia),
-typeMedia INT,
-FOREIGN KEY(typeMedia)
-REFERENCES TypeMedia(idTypeMedia),
-auteur INT,
-FOREIGN KEY(auteur)
-REFERENCES Utilisateur(idUtilisateur))
-ENGINE=innoDB;
-
--- Création Table Article_Media
-CREATE TABLE Article_Media(idArticleMedia INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(idArticleMedia),
-media INT,
-FOREIGN KEY(media)
-REFERENCES Media(idMedia),
-article INT,
-FOREIGN KEY(article)
-REFERENCES Article(idArticle))
-ENGINE=innoDB;
-
--- Insertion des types de statut
-INSERT INTO Statut(libelleStatut) VALUES("Publié");
-INSERT INTO Statut(libelleStatut) VALUES("Brouillon");
-INSERT INTO Statut(libelleStatut) VALUES("Non publié");
-INSERT INTO Statut(libelleStatut) VALUES("En attente de validation");
-
--- Insertion type utilisateur inscrit, contributeur, administrateur
-INSERT INTO TypeUtilisateur(libelleType) VALUES("Inscrit");
-INSERT INTO TypeUtilisateur(libelleType) VALUES("Contributeur");
-INSERT INTO TypeUtilisateur(libelleType) VALUES("Administrateur");
-
--- Insertion type media image, video
-INSERT INTO TypeMedia(libelleType) VALUES("Image");
-INSERT INTO TypeMedia(libelleType) VALUES("Video");
-INSERT INTO TypeMedia(libelleType) VALUES("Document");
-
 -- Update le type utilisateur d'inscrit à visiteur
 UPDATE TypeUtilisateur SET libelletype = "Visiteur" WHERE libelletype = "Inscrit";
 
@@ -155,30 +13,40 @@ SELECT COUNT(*) FROM Statut;
 -- Création d'un alias
 SELECT COUNT(*) AS "Nombre de statuts" FROM Statut;
 
--- Création Utilisateur
-INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
-VALUES ("ThierryDev62", "BROUET", "Thierry", "1970-09-07", "titi", 3);
-INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
-VALUES ("Didine", "BROUET", "Amandine", "1984-11-28", "didine", 3);
-INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
-VALUES ("Titi", "BROUET", "Théo", "2002-01-22", "trankiloubilou", 2);
-INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
-VALUES ("Choukouyaya", "BROUET", "Yaëlle", "2010-12-12", "choukou", 2);
-INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
-VALUES ("Bounie", "BROUET", "Charlye", "2012-05-18", "bouniedu62", 1);
-INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
-VALUES ("Pipite", "BROUET", "Lya", "2015-07-13", "pipitou", 1);
-INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
-VALUES ("ludo", "BROUET", "Ludovic", "1981-08-15", "perenos", 1);
-INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
-VALUES ("laurette", "DEVENDEVILLE", "Laure", "1978-03-01", "lasoeur", 1);
-INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
-VALUES ("lili", "BROUET", "Liliane", "1947-09-28", "lamère", 1);
-INSERT INTO Utilisateur(login, nom, prenom, dateNaissance, motDePasse, typeUtilisateur) 
-VALUES ("jc", "BROUET", "Jean-Claude", "1947-04-21", "lepère", 1);
 
 -- Liste des utilisateurs par ordre alphabétique
 SELECT * FROM Utilisateur ORDER BY login ASC;
 
 -- Liste des utilisateurs par date de naissance du plus jeune au plus vieux
 SELECT * FROM Utilisateur ORDER BY dateNaissance DESC;
+
+-- Liste des administrateurs
+SELECT * FROM Utilisateur WHERE typeUtilisateur=3;
+
+-- liste des autres utilisateurs
+SELECT * FROM Utilisateur WHERE typeUtilisateur<3;
+
+-- Pseudo et mot de passe des utilisateurs
+SELECT login AS "Pseudo", motDepasse AS "Mot de passe" FROM Utilisateur WHERE typeUtilisateur = 3;
+
+-- Requête imbriquée
+SELECT login AS "Pseudo", motDepasse AS "Mot de passe" FROM Utilisateur WHERE typeUtilisateur =
+(SELECT typeUtilisateur FROM typeUtilisateur WHERE libelleType="Administrateur"); 
+
+-- Jointure avec ALIAS
+SELECT U.login AS "Pseudo", U.motDePasse AS "mdp", T.libelleType AS "Statut" FROM Utilisateur AS U INNER JOIN typeUtilisateur AS T ON U.typeUtilisateur = T.idtypeUtilisateur;
+
+-- Grouper
+SELECT U.login AS "Pseudo", U.motDePasse AS "mdp", T.libelleType AS "Statut" FROM Utilisateur AS U INNER JOIN typeUtilisateur AS T ON U.typeUtilisateur = T.idtypeUtilisateur GROUP BY T.libelleType;
+
+-- Sélectionner le dernier article publié
+SELECT * FROM Article WHERE statut IN(SELECT idStatut FROM Statut WHERE libelleStatut = "Publié") ORDER BY dateConception DESC LIMIT 0, 1;
+
+-- Tous les articles qui commencent par "U"
+SELECT * FROM Article WHERE Titre LIKE "U%";
+
+-- Remplacer la lettre "U" de chaque Titre par un "A"
+UPDATE Article SET Titre = REPLACE(Titre, "U", "A");
+
+-- Suppression les utilisateurs qui n'ont pas publié d'article et de commentaire
+DELETE FROM Utilisateur WHERE idUtilisateur NOT IN(SELECT auteur FROM Article) AND idUtilisateur NOT IN(SELECT auteur FROM Commentaire);
