@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="col text-center text-md-left">
-                            <button type="text" class="btn btn-warning" id="recherche">Rechercher</button>
+                            <button type="submit" class="btn btn-warning" id="recherche">Rechercher</button>
                         </div>
                     </div>
                 </form>
@@ -104,12 +104,14 @@
             <div class="col-md-7 text-center">
                 <p>Utilisez le formulaire ci-dessous pour nous contacter par mail.<br>
                     Nous vous répondrons dans les plus brefs délais.</p>
-                <form action="#" method="post" class="border border-warning shadow-lg p-md-3 rounded-lg bg-dark w-md-75">
+                <form action="#" method="post"
+                    class="border border-warning shadow-lg p-md-3 rounded-lg bg-dark w-md-75">
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning border border-warning" id="nom">Nom</span>
+                                    <label class="input-group-text bg-warning border border-warning"
+                                        id="nom">Nom</label>
                                 </div>
                                 <input type="text" class="form-control border border-warning" placeholder="Votre nom">
                             </div>
@@ -117,8 +119,8 @@
                         <div class="col-md-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning border border-warning"
-                                        id="prenom">Prénom</span>
+                                    <label class="input-group-text bg-warning border border-warning"
+                                        id="prenom">Prénom</label>
                                 </div>
                                 <input type="text" class="form-control border border-warning"
                                     placeholder="Votre prenom">
@@ -129,8 +131,8 @@
                         <div class="col-md-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning border border-warning"
-                                        id="mail">Mail*</span>
+                                    <label class="input-group-text bg-warning border border-warning"
+                                        id="mail">Mail*</label>
                                 </div>
                                 <input type="email" class="form-control border border-warning"
                                     placeholder="Votre email">
@@ -139,24 +141,22 @@
                         <div class="col-md-6">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning border border-warning"
-                                        id="telephone">Téléphone*</span>
+                                    <label class="input-group-text bg-warning border border-warning"
+                                        id="telephone">Téléphone*</label>
                                 </div>
                                 <input type="tel" class="form-control border border-warning"
                                     placeholder="Votre numéro de téléphone">
                             </div>
                         </div>
                     </div>
-
-                    
                     <div class="form-row">
                         <div class="col">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning border border-warning"
-                                        id="objet">Objet</span>
+                                    <label class="input-group-text bg-warning border border-warning"
+                                        id="objet">Objet</label>
                                 </div>
-                                <input type="text" class="form-control border border-warning">
+                                <input type="text" class="form-control border border-warning" placeholder="Objet">
                             </div>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
                         <div class="col">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning border border-warning">Message</span>
+                                    <label class="input-group-text bg-warning border border-warning">Message</label>
                                 </div>
                                 <textarea class="form-control border border-warning" rows="5" cols="33"></textarea>
                             </div>
@@ -175,7 +175,6 @@
                             <button type="submit" class="btn btn-warning">Envoyer</button>
                         </div>
                     </div>
-
                 </form>
             </div>
             <div class="col">
