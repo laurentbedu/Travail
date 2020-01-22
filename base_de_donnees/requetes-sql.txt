@@ -55,27 +55,35 @@ DELETE FROM Utilisateur WHERE idUtilisateur NOT IN(SELECT idUtilisateur FROM Art
 
 
 -- Afficher le titre, description et le nom de l'auteur des articles publiés par un administrateur (OK)
-SELECT A.titre AS "Titre", A.description AS "Description", U.login AS "Auteur" FROM Article AS A INNER JOIN Utilisateur U ON A.auteur = U.IdUtilisateur WHERE typeUtilisateur IN(SELECT idTypeUtilisateur FROM typeUtilisateur WHERE libelleType = "Administrateur");
+SELECT A.titreArticle AS "Titre", A.descriptionArticle AS "Description", U.pseudoUtilisateur AS "Auteur" FROM Article AS A INNER JOIN Utilisateur U ON A.idUtilisateur = U.IdUtilisateur WHERE idTypeUtilisateur IN(SELECT idTypeUtilisateur FROM typeUtilisateur WHERE libelleTypeUtilisateur = "Administrateur");
 
 
 
 -- Afficher l'article le plus populaire (OK)
-SELECT article AS "Article le plus populaire", COUNT(*) AS total FROM Jaime GROUP BY article ORDER BY total DESC LIMIT 0,1;
+
+SELECT A.titreArticle, COUNT(*) AS total FROM Jaime AS J
+ 
+INNER JOIN Article AS A ON A.idArticle = J.idArticle
+
+GROUP BY J.idArticle ORDER BY total DESC LIMIT 0,1;
 
 
 -- Modifier le mot de passe de l'administrateur (OK)
-UPDATE Utilisateur SET motDePasse = "toto" WHERE typeUtilisateur = 3;
+UPDATE Utilisateur SET motDePasse = "toto" 
+WHERE idTypeUtilisateur IN(SELECT idTypeUtilisateur FROM TypeUtilisateur WHERE libelleTypeUtilisateur = "Administrateur");
 
 
--- Afficher le titre, la catégorie et les images des articles d'une catégorie (PRESQUE)
-SELECT Article.titre, Categorie.typeCategorie, Article_Media.media FROM Article
-INNER JOIN Categorie ON Article.categorie = Categorie.idCategorie
-INNER JOIN Article_Media ON Article.media = Article_Media.idArticleMedia;
+-- Afficher le titre, la catégorie et les images des articles d'une catégorie (ok) 
+SELECT Article.titreArticle, Categorie.typeCategorie, Media.cheminMedia FROM Article
+INNER JOIN Categorie ON Article.idCategorie = Categorie.idCategorie
+INNER JOIN Article_Media ON Article.idArticle = Article_Media.idArticleMedia
+INNER JOIN Media ON Article_Media.idMedia = Media.idMedia;
 
 
 -- Afficher les 3 derniers articles publiés (OK)
-SELECT * FROM Article WHERE statut IN(SELECT idStatut FROM Statut WHERE libelleStatut = "Publié") ORDER BY dateConception DESC LIMIT 0,3;
+SELECT * FROM Article WHERE idStatut IN(SELECT idStatut FROM Statut WHERE libelleStatut = "Publié") ORDER BY dateConception DESC LIMIT 0,3;
 
 
--- -------------------------------------------------
+-- Modifier une table existante
+ALTER TABLE Article ADD COLUMN likes INT NOT NULL DEFAULT(0);
 
