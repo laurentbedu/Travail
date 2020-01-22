@@ -4,51 +4,78 @@ UPDATE TypeUtilisateur SET libelletype = "Visiteur" WHERE libelletype = "Inscrit
 -- Suppression dans Statut de "En attente de validation"
 DELETE FROM Statut WHERE libelleStatut = "En attente de validation";
 
--- Selectionner tout dans TypeMedia
+-- Selectionner tout dans TypeMedia (ok)
 SELECT * from TypeMedia;
 
--- Le nombre de Statut dans la table Statut
+-- Le nombre de Statut dans la table Statut (ok)
 SELECT COUNT(*) FROM Statut;
 
--- Création d'un alias
+-- Création d'un alias (ok)
 SELECT COUNT(*) AS "Nombre de statuts" FROM Statut;
 
 
--- Liste des utilisateurs par ordre alphabétique
-SELECT * FROM Utilisateur ORDER BY login ASC;
+-- Liste des utilisateurs par ordre alphabétique (ok)
+SELECT * FROM Utilisateur ORDER BY pseudoUtilisateur ASC;
 
--- Liste des utilisateurs par date de naissance du plus jeune au plus vieux
+-- Liste des utilisateurs par date de naissance du plus jeune au plus vieux (ok)
 SELECT * FROM Utilisateur ORDER BY dateNaissance DESC;
 
--- Liste des administrateurs
-SELECT * FROM Utilisateur WHERE typeUtilisateur=3;
+-- Liste des administrateurs (ok)
+SELECT * FROM Utilisateur WHERE idTypeUtilisateur=3;
 
--- liste des autres utilisateurs
-SELECT * FROM Utilisateur WHERE typeUtilisateur<3;
+-- liste des autres utilisateurs (ok)
+SELECT * FROM Utilisateur WHERE idTypeUtilisateur<3;
 
--- Pseudo et mot de passe des utilisateurs
-SELECT login AS "Pseudo", motDepasse AS "Mot de passe" FROM Utilisateur WHERE typeUtilisateur = 3;
+-- Pseudo et mot de passe des utilisateurs administrateurs (ok)
+SELECT pseudoUtilisateur AS "Pseudo", motDepasse AS "Mot de passe" FROM Utilisateur WHERE idTypeUtilisateur = 3;
 
--- Requête imbriquée
-SELECT login AS "Pseudo", motDepasse AS "Mot de passe" FROM Utilisateur WHERE typeUtilisateur =
-(SELECT typeUtilisateur FROM typeUtilisateur WHERE libelleType="Administrateur"); 
+-- Requête imbriquée (ok)
+SELECT pseudoUtilisateur AS "Pseudo", motDepasse AS "Mot de passe" FROM Utilisateur WHERE idTypeUtilisateur =
+(SELECT idTypeUtilisateur FROM typeUtilisateur WHERE libelleType="Administrateur"); 
 
--- Jointure avec ALIAS
-SELECT U.login AS "Pseudo", U.motDePasse AS "mdp", T.libelleType AS "Statut" FROM Utilisateur AS U INNER JOIN typeUtilisateur AS T ON U.typeUtilisateur = T.idtypeUtilisateur;
+-- Jointure avec ALIAS (ok)
+SELECT U.pseudoUtilisateur AS "Pseudo", U.motDePasse AS "mdp", T.libelleTypeUtilisateur AS "Statut" FROM Utilisateur AS U INNER JOIN TypeUtilisateur AS T ON U.idTypeUtilisateur = T.idtypeUtilisateur;
 
--- Grouper
-SELECT U.login AS "Pseudo", U.motDePasse AS "mdp", T.libelleType AS "Statut" FROM Utilisateur AS U INNER JOIN typeUtilisateur AS T ON U.typeUtilisateur = T.idtypeUtilisateur GROUP BY T.libelleType;
+-- Grouper (ok)
+SELECT U.pseudoUtilisateur AS "Pseudo", U.motDePasse AS "mdp", T.libelleTypeUtilisateur AS "Statut" FROM Utilisateur AS U INNER JOIN typeUtilisateur AS T ON U.idTypeUtilisateur = T.idtypeUtilisateur GROUP BY T.libelleTypeUtilisateur;
 
--- Sélectionner le dernier article publié
-SELECT * FROM Article WHERE statut IN(SELECT idStatut FROM Statut WHERE libelleStatut = "Publié") ORDER BY dateConception DESC LIMIT 0, 1;
+-- Sélectionner le dernier article publié (ok)
+SELECT * FROM Article WHERE idStatut IN(SELECT idStatut FROM Statut WHERE libelleStatut = "Publié") ORDER BY dateConception DESC LIMIT 0, 1; 
 
--- Tous les articles qui commencent par "U"
-SELECT * FROM Article WHERE Titre LIKE "U%";
+-- Tous les articles qui commencent par "U" (ok)
+SELECT * FROM Article WHERE titreArticle LIKE "U%";
 
--- Remplacer la lettre "U" de chaque Titre par un "A"
-UPDATE Article SET Titre = REPLACE(Titre, "U", "A");
+-- Remplacer la lettre "A" de chaque Titre par un "U" (ok)
+UPDATE Article SET titreArticle = REPLACE(titreArticle, "A", "U");
 
--- Suppression les utilisateurs qui n'ont pas publié d'article et de commentaire
-DELETE FROM Utilisateur WHERE idUtilisateur NOT IN(SELECT auteur FROM Article) AND idUtilisateur NOT IN(SELECT auteur FROM Commentaire);
+-- Suppression les utilisateurs qui n'ont pas publié d'article et de commentaire (ok)
+DELETE FROM Utilisateur WHERE idUtilisateur NOT IN(SELECT idUtilisateur FROM Article) AND idUtilisateur NOT IN(SELECT idUtilisateur FROM Commentaire);
 
--- Afficher le titre, description et le nom de l'auteur des articles publiés par un administrateur
+
+
+
+-- Afficher le titre, description et le nom de l'auteur des articles publiés par un administrateur (OK)
+SELECT A.titre AS "Titre", A.description AS "Description", U.login AS "Auteur" FROM Article AS A INNER JOIN Utilisateur U ON A.auteur = U.IdUtilisateur WHERE typeUtilisateur IN(SELECT idTypeUtilisateur FROM typeUtilisateur WHERE libelleType = "Administrateur");
+
+
+
+-- Afficher l'article le plus populaire (OK)
+SELECT article AS "Article le plus populaire", COUNT(*) AS total FROM Jaime GROUP BY article ORDER BY total DESC LIMIT 0,1;
+
+
+-- Modifier le mot de passe de l'administrateur (OK)
+UPDATE Utilisateur SET motDePasse = "toto" WHERE typeUtilisateur = 3;
+
+
+-- Afficher le titre, la catégorie et les images des articles d'une catégorie (PRESQUE)
+SELECT Article.titre, Categorie.typeCategorie, Article_Media.media FROM Article
+INNER JOIN Categorie ON Article.categorie = Categorie.idCategorie
+INNER JOIN Article_Media ON Article.media = Article_Media.idArticleMedia;
+
+
+-- Afficher les 3 derniers articles publiés (OK)
+SELECT * FROM Article WHERE statut IN(SELECT idStatut FROM Statut WHERE libelleStatut = "Publié") ORDER BY dateConception DESC LIMIT 0,3;
+
+
+-- -------------------------------------------------
+
