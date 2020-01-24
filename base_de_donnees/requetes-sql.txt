@@ -87,3 +87,5 @@ SELECT * FROM Article WHERE idStatut IN(SELECT idStatut FROM Statut WHERE libell
 -- Modifier une table existante
 ALTER TABLE Article ADD COLUMN likes INT NOT NULL DEFAULT(0);
 
+-- Statut du dernier article publié
+SELECT 

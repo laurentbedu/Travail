@@ -1,0 +1,99 @@
+-- ------------------------
+-- CREATION DE LA BASE AFPO
+-- ------------------------
+
+
+-- Suppression de la Base si elle existe
+-- DROP DATABASE IF EXISTS afpo;
+
+-- Création de la base blog
+-- CREATE DATABASE afpo DEFAULT CHARACTER SET=utf8;
+
+-- On utilise la base afpo
+-- USE afpo;
+
+-- Suppression de Table
+-- DROP TABLE IF EXISTS Stagiaire;
+-- DROP TABLE IF EXISTS lieu;
+-- DROP TABLE IF EXISTS Responsable;
+-- DROP TABLE IF EXISTS Diplome;
+-- DROP TABLE IF EXISTS Professeur;
+-- DROP TABLE IF EXISTS Classe;
+-- DROP TABLE IF EXISTS Professeur_Classe;
+
+
+-- Création de la base afpo
+CREATE DATABASE afpo DEFAULT CHARACTER SET = utf8;
+
+-- Création table Stagiaire
+CREATE TABLE Stagiaire(
+idStagiaire INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(idStagiaire),
+nomStagiaire VARCHAR(255) NOT NULL,
+prenomStagiaire VARCHAR(255) NOT NULL,
+dateNaissStagiaire DATE NOT NULL)
+ENGINE=innoDB;
+
+-- Création table lieu
+CREATE TABLE lieu(
+idLieu INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(idLieu),
+numeroRue INT,
+complNumeroRue VARCHAR(5),
+nomRue VARCHAR(255),
+complNomRue VARCHAR(255),
+codePostal INT,
+ville VARCHAR(100))
+ENGINE=innoDB;
+
+-- Création table Responsable
+CREATE TABLE Responsable(
+idResponsable INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(idResponsable),
+nomResponsable VARCHAR(255) NOT NULL,
+prenomResponsable VARCHAR(255) NOT NULL)
+ENGINE=innoDB;
+
+-- Création table Diplome
+CREATE TABLE Diplome(
+idDiplome INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(idDiplome),
+typeDiplome VARCHAR(255))
+ENGINE=innoDB;
+
+-- Création table Professeur
+CREATE TABLE Professeur(
+idProfesseur INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(idProfesseur),
+nomProfesseur VARCHAR(255),
+prenomProfesseur VARCHAR(255))
+ENGINE=innoDB;
+
+-- Création table Classe
+
+CREATE TABLE classe(
+idClasse INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(idClasse),
+nomClasse VARCHAR(50) NOT NULL,
+capacite INT NULL,
+idLieu INT NOT NULL,
+FOREIGN KEY(idLieu)
+REFERENCES lieu(idLieu),
+idResponsable INT NOT NULL,
+FOREIGN KEY(idResponsable)
+REFERENCES Responsable(idResponsable),
+idDiplome INT NOT NULL,
+FOREIGN KEY(idDiplome)
+REFERENCES Diplome(idDiplome),
+idStagiaire INT NOT NULL,
+FOREIGN KEY(idStagiaire)
+REFERENCES Stagiaire(idStagiaire))
+ENGINE=innoDB;
+
+-- Création table Professeur_Classe
+CREATE TABLE Professeur_Classe(
+idProfesseur_Classe INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(idProfesseur_Classe),
+idProfesseur INT NOT NULL,
+FOREIGN KEY(idProfesseur)
+REFERENCES Professeur(idProfesseur),
+idClasse INT NOT NULL,
+FOREIGN KEY(idClasse)
+REFERENCES Classe(idClasse))
+ENGINE=innoDB;
+
+
+

@@ -1,0 +1,43 @@
+-- Insertion des fonctions
+INSERT INTO Fonction(LibelleFonction) VALUES ("Stagiaire");
+INSERT INTO Fonction(LibelleFonction) VALUES ("Directeur");
+INSERT INTO Fonction(LibelleFonction) VALUES ("Manager");
+INSERT INTO Fonction(LibelleFonction) VALUES ("Formateur");
+
+-- Suppression stagiaire dans fonction
+DELETE FROM Fonction WHERE libelleFonction = "Stagiaire";
+
+-- Mise à jour Manager
+UPDATE Fonction SET libelleFonction = "Manager de formation" WHERE libelleFonction = "Manager"; 
+
+-- Ajouter une colonne dans fonction
+ALTER TABLE Fonction
+ADD COLUMN Niveau INT NOT NULL DEFAULT 0;
+
+-- Liste de tous les stagiaires
+
+-- Version INNER JOIN
+SELECT * FROM Personne INNER JOIN Classe
+ON Personne.idPersonne = classePersonne.idPersonne
+INNER JOIN Fonction ON Fonction.idFonction = Personne.idFonction
+INNER JOIN ClassePersonne ON ClassePersonne.idClasse = Classe.idClasse
+WHERE nomClasse = "WWM" AND libelleFonction="Stagiaire";
+
+-- Version à virgule
+SELECT P.* FROM Personne AS P, Classe AS C, Fonction AS F, ClassePersonne AS CP
+WHERE P.idPersonne = CP.idPersonne
+AND C.idClasse = CP.idClasse
+AND F.idFonction = P.idFonction
+AND C.nomClasse = "WWM"
+AND F.libelleFonction = "Stagiaire";
+
+-- Concaténer nom + prénom des 15 premiers stagiaires
+SELECT CONCAT(nom, " ", prenom)
+FROM Personne WHERE
+idFonction IN(SELECT Fonction.idFonction FROM Fonction
+WHERE libelleFonction="Stagiaire")
+LIMIT 0, 15;
+
+-- Rajout date naissance stagiaire
+ALTER TABLE Personne ADD COLUMN DateNaissance DATE NOT NULL;
+
