@@ -1,0 +1,27 @@
+-- Ajouter des véhicules de type tourisme
+INSERT INTO adresses (numeroRue, nomRue, idVilles) VALUES (34, "Rue de la Piscine", 1);
+INSERT INTO vehicules(immatriculation, description, puissance, prixHT, annee, kilometrage, idAdresses, idModeles, idMarques, idTypesVehicule, idMotorisation) 
+VALUES ("GT-589-VF", "La voiture idéale", 7, 15000, "2017-01-01", 42000, 12, 3, 2, 1, 1);
+
+-- Ajouter un utilisateur
+INSERT INTO adresses (numeroRue, nomRue, idVilles) VALUES (3565421, "Rue de l'éternité", 2);
+INSERT INTO Clients (societe, nomClient, prenomClient, numeroTel, email, tvaApplicable, idTypesClients, idAdresses)
+VALUES ("Back-end for ever", "Péhachepé", "Emile", "0321547898", "phpmysql@free.fr", "Non", 3, 13);
+
+-- Afficher les véhicules dont le prix est compris entre 8000 et 15000 euros dans la ville de Lille avec l'ordre de prix croissant
+SELECT * FROM Vehicules 
+WHERE prixHT BETWEEN 8000 AND 15000 ORDER BY prixHT ASC;
+
+-- Afficher les véhicules de marque BMW âgés de moins de 5 ans et dont le modèle de X6 avec les options suivantes : climatisation, GPS, pneus 19 pouces
+
+
+-- Afficher le prix des véhicules HT et TTC présent en stock, dont la puissance est supérieure à 6CV, de type électrique et hybride, de marque BMW, Toyota et Audi. Je voudrais également les regrouper par type.
+
+
+-- Supprimer les véhicules âgés de plus de 20 ans dans la ville de Douai
+SELECT * FROM Vehicules WHERE DATEDIFF
+
+-- Modifier les noms des véhicules afin de pouvoir les afficher en majuscule
+
+
+-- Modifier le nombre de km pour les véhicules ayant plus de 150 000 km (objectif est de remplacer ce kilométrage et afficher 99 000 km)
