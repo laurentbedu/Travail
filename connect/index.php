@@ -1,2 +1,2 @@
-<a href="connect.php">Connect</a>
+<a href="listeProduits.php">Liste des produits</a>
 
