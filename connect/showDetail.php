@@ -2,10 +2,12 @@
 require("connect.php");
 
 $base = connect();
+$produit = $_GET["idProduct"];
 
-$sql = "SELECT P.id, P.name, P.price, P.description, P.image, Categories.name AS categorie_name FROM Products AS P
+
+$sql = "SELECT P.id, P.name, P.price, P.description, DAY(P.created) AS jour, MONTH(P.created) AS mois, YEAR(P.created) AS annee, P.image, Categories.name AS categorie_name FROM Products AS P
 INNER JOIN Categories ON P.category_id = Categories.id
-WHERE P.id = " . $_GET["idProduct"];
+WHERE P.id = " . $produit;
 
 $req = $base->prepare($sql);
 $req->execute();
@@ -28,7 +30,7 @@ while($data = $req->fetchObject()) {
 
     <div class="row justify-content-center">
         <div class="col">
-            <h1 class="text-center">Détail du produit - <?= $data->name ?></h1>
+            <h1 class="text-center">Détail du produit - <?= $data->name ?> - Réf : <?= $data->id ?></h1>
 
         </div>
     </div>
@@ -39,6 +41,7 @@ while($data = $req->fetchObject()) {
                 <img class="img-thumbnail" src="src/img/<?= $data->image ?>" alt="image du produit référencé <?= $data->id ?>" title="Produit référencé <?= $data->id ?>">
                 <div class="card-body">
                     <h3><?= $data->name ?></h3>
+                    <p>Date de mise en ligne : <?= $data->jour . '/' . $data->mois . '/' . $data->annee ?></p>
                     <p>Catégorie : <?= $data->categorie_name ?></p>
                     <p>Description : <?= $data->description ?></p>
                     <p>Prix : <?php
