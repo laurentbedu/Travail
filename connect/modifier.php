@@ -5,7 +5,7 @@ $base = connect();
 $idProduct = $_GET["idProduct"];
 
 // On va chercher toutes les infos utiles dans la base de données
-$sql = "SELECT P.id, P.name, P.description, P.price, P.image, DAY(P.modified) AS jour, MONTH(P.modified) AS mois, YEAR(P.modified) AS annee, Categories.name AS categorie_name FROM Products AS P
+$sql = "SELECT P.id, P.name, P.description, P.price, P.image, P.category_id, DAY(P.modified) AS jour, MONTH(P.modified) AS mois, YEAR(P.modified) AS annee, Categories.name AS categorie_name FROM Products AS P
 INNER JOIN Categories ON P.category_id = Categories.id
 WHERE P.id = " . $idProduct;
 
@@ -47,32 +47,36 @@ while ($data = $req->fetchObject()) {
             <div class="row border p-5 rounded-lg bg-light">
                 <div class="col">
                     <form class="border w-50 mx-auto p-5 bg-white shadow-lg" method="post" action="traitementModif.php">
+                        <input type="hidden" class="form-control" id="nom" name="id" value="<?= $data->id ?>">
                         <div class="form-group">
                             <label for="image">Image : <?= $data->image ?></label>
                             <img class="img-thumbnail" id="image" src="src/img/<?= $data->image ?>" alt="image du produit référencé <?= $data->id ?>" title="Produit référencé <?= $data->id ?>">
                         </div>
                         <div class="form-group">
                             <label for="nom">Nom</label>
-                            <input type="text" class="form-control" id="nom" value="<?= $data->name ?>">
+                            <input type="text" class="form-control" id="nom" name="name" value="<?= $data->name ?>">
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <input type="text" class="form-control" id="description" value="<?= $data->description ?>">
+                            <input type="text" class="form-control" id="description" name="description" value="<?= $data->description ?>">
                         </div>
                         <div class="form-group">
-                            <label for="prix">Description</label>
-                            <input type="text" class="form-control" id="prix" value="<?php
+                            <label for="prix">Prix</label>
+                            <input type="text" class="form-control" id="prix" name="price" value="<?php
                                                                                         $prix = $data->price;
                                                                                         echo number_format($prix, 2, ',', ' '); ?>€">
                         </div>
                         <div class="form-group">
                             <label for="categorie">Catégorie actuelle : <?= $data->categorie_name ?></label>
 
-                            <select class="form-control" id="categorie">
+                            <select class="form-control" id="categorie" name="categoryName">
                                 <?php
                                 while ($data2 = $req2->fetchObject()) {
                                 ?>
-                                    <option><?= $data2->name ?></option>
+                                    <option <?php if($data2->name == $data->categorie_name) {
+                                        echo "selected";
+                                    }?>>
+                                    <?= $data2->name ?></option>
 
                                 <?php
                                 }
@@ -82,7 +86,6 @@ while ($data = $req->fetchObject()) {
 
                         <button type="submit" class="btn btn-success">Valider</button>
                     </form>
-
 
                     <div class="row mt-5">
                         <div class="col text-center">

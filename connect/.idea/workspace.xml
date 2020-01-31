@@ -53,6 +53,7 @@
       <workItem from="1580369569754" duration="2795000" />
       <workItem from="1580372647521" duration="6898000" />
       <workItem from="1580380020185" duration="16531000" />
+      <workItem from="1580454464486" duration="10492000" />
     </task>
     <servers />
   </component>
@@ -76,5 +77,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1580375852190" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1580463924388">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1580463924388" />
   </component>
 </project>
