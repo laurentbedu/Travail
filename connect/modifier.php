@@ -34,13 +34,14 @@ while ($data = $req->fetchObject()) {
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
 
-    <body>
+    <body class="bg-dark">
+        <?php include("header.php"); ?>
         <div class="container">
 
             <div class="row justify-content-center">
                 <div class="col">
-                    <h1 class="text-center">Modification - <?= $data->name ?> - Réf : <?= $data->id ?></h1>
-                    <h3 class="text-center">Date de la dernière modification : <?= $data->jour . '/' . $data->mois . '/' . $data->annee ?></h3>
+                    <h2 class="text-center text-warning">Modification - <?= $data->name ?> - Réf : <?= $data->id ?></h2>
+                    <h3 class="text-center text-warning">Date de la dernière modification : <?= $data->jour . '/' . $data->mois . '/' . $data->annee ?></h3>
                 </div>
             </div>
             <hr>
@@ -87,11 +88,8 @@ while ($data = $req->fetchObject()) {
                         <button type="submit" class="btn btn-success">Valider</button>
                     </form>
 
-                    <div class="row mt-5">
-                        <div class="col text-center">
-                            <a href="listeProduits.php">Revenir à la liste des produits</a>
-                        </div>
-                    </div>
+                    <div class="w-100 mt-5"></div>
+                <p><a href="listeProduits.php" class="btn btn-danger">&larr; Annuler et revenir à la liste des produits</a></p>
                 </div>
             </div>
         </div>

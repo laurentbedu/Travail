@@ -8,7 +8,7 @@
                 <a class="nav-link btn btn-success m-2 shadow-lg" href="index.php">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link btn btn-success m-2 shadow-lg" href="#">Créer</a>
+                <a class="nav-link btn btn-success m-2 shadow-lg" href="creer.php">Créer</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link btn btn-success m-2 shadow-lg" href="listeProduits.php">Liste des produits</a>
