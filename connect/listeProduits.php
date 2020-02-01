@@ -26,6 +26,7 @@ $req->execute();
 </head>
 
 <body>
+    <?php include("header.php"); ?>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <h1 class="text-center">LISTE DES PRODUITS</h1>
@@ -61,16 +62,16 @@ $req->execute();
                             <td>
                                 <div class="row justify-content-around">
 
-                                    <a href="showDetail.php?idProduct=<?= $data->id ?>">
-                                        <button type="button" class="btn btn-primary shadow-lg">Voir</button>
+                                    <a href="showDetail.php?idProduct=<?= $data->id ?>" class="btn btn-warning shadow-lg">
+                                        Voir
                                     </a>
 
-                                    <a href="modifier.php?idProduct=<?= $data->id ?>">
-                                        <button type="button" class="btn btn-success shadow-lg">Modifier</button>
+                                    <a href="modifier.php?idProduct=<?= $data->id ?>" class="btn btn-success shadow-lg">
+                                        Modifier
                                     </a>
 
-                                    <a href="supprime.php?idProduct=<?= $data->id ?>">
-                                        <button type="button" class="btn btn-danger shadow-lg">Supprimer</button>
+                                    <a href="supprime.php?idProduct=<?= $data->id ?>" class="btn btn-danger shadow-lg">
+                                        Supprimer
                                     </a>
                                 </div>
                             </td>
