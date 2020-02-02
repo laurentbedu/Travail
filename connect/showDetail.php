@@ -1,5 +1,5 @@
 <?php
-require("connect.php");
+require("fonctions.php");
 
 $base = connect();
 $produit = $_GET["idProduct"];
@@ -49,9 +49,7 @@ while ($data = $req->fetchObject()) {
                         <p>Date de mise en ligne : <?= $data->jour . '/' . $data->mois . '/' . $data->annee ?></p>
                         <p>Catégorie : <?= $data->categorie_name ?></p>
                         <p>Description : <?= $data->description ?></p>
-                        <p>Prix : <?php
-                                    $prix = $data->price;
-                                    echo number_format($prix, 2, ',', ' '); ?>€</p>
+                        <p>Prix : <?= $data->price; ?>€</p>
                     </div>
                 </div>
                 <div class="w-100 mt-5"></div>

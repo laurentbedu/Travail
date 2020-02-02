@@ -1,5 +1,5 @@
 <?php
-require("connect.php");
+require("fonctions.php");
 
 $base = connect();
 
@@ -72,9 +72,9 @@ $req->execute();
                                         Modifier
                                     </a>
 
-                                    <button class="btn btn-danger shadow-lg" data-toggle="modal" data-target="#modalSuppr">
+                                    <a href="supprime.php?idProduct=<?= $idProduct ?>" class="btn btn-danger shadow-lg">
                                         Supprimer
-                                    </button>
+                                    </a>
                                 </div>
                             </td>
                         </tr>
@@ -90,25 +90,28 @@ $req->execute();
         </div>
     </div>
 
-    <!-- Modale suppression -->
 
-    <div class="modal fade" id="modalSuppr" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="suppression">Suppression d'un produit</h5>
-                </div>
-                <div class="modal-body">
-                    <p>Êtes-vous sûr de vouloir supprimer le produit <?= $nameProduct ?> ?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <a href="supprime.php?idProduct=<?= $idProduct ?>" class="btn btn-danger">Confirmer</a>
-                </div>
-            </div>
-        </div>
+    <!-- Modal -->
+<div class="modal fade" id="modalSuppr" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalSupprTitre">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-
+  </div>
+</div>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

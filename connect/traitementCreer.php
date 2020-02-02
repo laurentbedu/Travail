@@ -1,14 +1,14 @@
 <?php
 
-require("connect.php");
+require("fonctions.php");
 
 $base = connect();
 
-$name = htmlspecialchars($_POST["name"]);
-$description = htmlspecialchars($_POST["description"]);
-$prix = htmlspecialchars($_POST["prix"]);
-$image = htmlspecialchars($_POST["image"]);
-$categorie = htmlspecialchars($_POST["categorie"]);
+$name = verifVariable($_POST["name"]);
+$description = verifVariable($_POST["description"]);
+$prix = verifVariable($_POST["prix"]);
+$image = verifVariable($_POST["image"]);
+$categorie = verifVariable($_POST["categorie"]);
 
 
 // Recherche de l'id de la catégorie en fonction du nom
