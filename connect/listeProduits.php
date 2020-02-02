@@ -5,15 +5,10 @@ $base = connect();
 
 $sql = "SELECT P.id, P.name, P.price, P.description, P.image, Categories.name AS categorie_name FROM Products AS P
 INNER JOIN Categories ON P.category_id = Categories.id
-ORDER BY P.id";
-
-$sqlModal = "SELECT id, name FROM Products";
+ORDER BY P.id DESC";
 
 $req = $base->prepare($sql);
 $req->execute();
-
-$req2 = $base->prepare($sqlModal);
-$req2->execute();
 
 ?>
 
@@ -53,38 +48,42 @@ $req2->execute();
                 <tbody>
                     <?php
                     while ($data = $req->fetchObject()) {
+                        $idProduct = $data->id;
+                        $nameProduct = $data->name;
                     ?>
                         <tr>
-                            <th scope="row"><?= $data->id ?></th>
+                            <th scope="row"><?= $idProduct ?></th>
                             <td><?= $data->categorie_name ?></td>
-                            <td><?= $data->name ?></td>
+                            <td><?= $nameProduct ?></td>
                             <td><?= $data->description ?></td>
 
-                            <td class="text-center"><img class="img-thumbnail" src="src/img/<?= $data->image ?>" alt="image du produit référencé <?= $data->id ?>" title="Produit référencé <?= $data->id ?>"></td>
+                            <td class="text-center"><img class="img-thumbnail" src="src/img/<?= $data->image ?>" alt="image du produit référencé <?= $idProduct ?>" title="Produit référencé <?= $idProduct ?>"></td>
                             <td><?php
                                 $prix = $data->price;
                                 echo number_format($prix, 2, ',', ' '); ?>€</td>
                             <td>
                                 <div class="row justify-content-around">
 
-                                    <a href="showDetail.php?idProduct=<?= $data->id ?>" class="btn btn-warning shadow-lg">
+                                    <a href="showDetail.php?idProduct=<?= $idProduct ?>" class="btn btn-warning shadow-lg">
                                         Voir
                                     </a>
 
-                                    <a href="modifier.php?idProduct=<?= $data->id ?>" class="btn btn-success shadow-lg">
+                                    <a href="modifier.php?idProduct=<?= $idProduct ?>" class="btn btn-success shadow-lg">
                                         Modifier
                                     </a>
 
                                     <button class="btn btn-danger shadow-lg" data-toggle="modal" data-target="#modalSuppr">
                                         Supprimer
-                    </button>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
 
                 </tbody>
+
             <?php
                     }
+
             ?>
             </table>
 
@@ -92,28 +91,24 @@ $req2->execute();
     </div>
 
     <!-- Modale suppression -->
-    <?php
-    while ($data2 = $req2->fetchObject()) {
-    ?>
-        <div class="modal fade" id="modalSuppr" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="suppression">Suppression d'un produit</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>Êtes-vous sûr de vouloir supprimer le produit <?= $data2->name ?> - Référence <?= $data2->id ?> ?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <a href="supprime.php?idProduct=<?= $data2->id ?>" class="btn btn-danger">Confirmer</a>
-                    </div>
+
+    <div class="modal fade" id="modalSuppr" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="suppression">Suppression d'un produit</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Êtes-vous sûr de vouloir supprimer le produit <?= $nameProduct ?> ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <a href="supprime.php?idProduct=<?= $idProduct ?>" class="btn btn-danger">Confirmer</a>
                 </div>
             </div>
         </div>
-    <?php
-    }
-    ?>
+    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -51,7 +51,8 @@ while ($data = $req->fetchObject()) {
                         <input type="hidden" class="form-control" id="nom" name="id" value="<?= $data->id ?>">
                         <div class="form-group">
                             <label for="image">Image : <?= $data->image ?></label>
-                            <img class="img-thumbnail" id="image" src="src/img/<?= $data->image ?>" alt="image du produit référencé <?= $data->id ?>" title="Produit référencé <?= $data->id ?>">
+                            <img class="img-thumbnail" src="src/img/<?= $data->image ?>" alt="image du produit référencé <?= $data->id ?>" title="Produit référencé <?= $data->id ?>">
+                            <input type="text" id="image" class="form-control" name="image" value="<?= $data->image ?>">
                         </div>
                         <div class="form-group">
                             <label for="nom">Nom</label>

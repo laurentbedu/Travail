@@ -41,6 +41,14 @@
                             <label for="image">Image</label>
                             <input type="text" class="form-control" id="image" name="image" placeholder="Nom de l'image + son extension">
                         </div>
+                        <div class="form-group">
+                            <label for="categorie">Catégorie</label>
+                            <select class="form-control" name="categorie" id="categorie">
+                                <option value="fashion">Fashion</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="motors">Motors</option>
+                            </select>
+                        </div>
 
                         <button type="submit" class="btn btn-success">Valider</button>
                     </form>
