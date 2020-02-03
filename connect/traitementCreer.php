@@ -1,5 +1,5 @@
 <?php
-require("connexion.php");
+require("connexionBDD.php");
 require("fonctions.php");
 
 $name = verifVariable($_POST["name"]);

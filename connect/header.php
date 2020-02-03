@@ -13,6 +13,12 @@
             <li class="nav-item">
                 <a class="nav-link btn btn-success m-2 shadow-lg" href="listeProduits.php">Liste des produits</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-success m-2 shadow-lg" href="connexion.php">Connexion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-success m-2 shadow-lg" href="inscription.php">Inscription</a>
+            </li>
         </ul>
     </nav>
 </header>

@@ -1,5 +1,5 @@
 <?php
-require("connexion.php");
+require("connexionBDD.php");
 require("fonctions.php");
 
 $sql = "SELECT P.id, P.name, P.price, P.description, P.image, Categories.name AS categorie_name FROM Products AS P

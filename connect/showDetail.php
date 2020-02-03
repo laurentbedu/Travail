@@ -1,5 +1,5 @@
 <?php
-require("connexion.php");
+require("connexionBDD.php");
 require("fonctions.php");
 
 $produit = verifVariable($_GET["idProduct"]);
