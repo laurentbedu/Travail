@@ -26,7 +26,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager">
+    <configuration name="creer.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/creer.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.creer.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -54,6 +64,7 @@
       <workItem from="1580372647521" duration="6898000" />
       <workItem from="1580380020185" duration="16531000" />
       <workItem from="1580454464486" duration="10492000" />
+      <workItem from="1580716775801" duration="19029000" />
     </task>
     <servers />
   </component>
@@ -61,18 +72,26 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Notifications" timestamp="1580716802471">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1580716802471" />
     <state x="679" y="74" key="#PHP" timestamp="1580372460558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="679" y="74" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1580372460558" />
-    <state x="795" y="439" key="NewPhpFileDialog" timestamp="1580385894410">
+    <state x="674" y="212" key="#creer.php" timestamp="1580717283372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="795" y="439" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580385894410" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1580372453513">
+    <state x="674" y="212" key="#creer.php/0.0.1920.1040@0.0.1920.1040" timestamp="1580717283372" />
+    <state x="795" y="439" key="NewPhpFileDialog" timestamp="1580726887263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580372453513" />
+    <state x="795" y="439" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580726887263" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1580717398595">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580717398595" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1580375852190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -27,15 +27,15 @@
                         
                         <div class="form-group">
                             <label for="nom">Nom</label>
-                            <input type="text" class="form-control" id="nom" name="name" placeholder="Saisir un nom">
+                            <input type="text" class="form-control" id="nom" name="name" placeholder="Saisir un nom" required>
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Saisir une description"></textarea>
+                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Saisir une description" required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="prix">Prix</label>
-                            <input type="text" class="form-control" id="prix" name="prix" placeholder="Saisir un prix">
+                            <input type="text" class="form-control" id="prix" name="prix" placeholder="Saisir un prix" required>
                         </div>
                         <div class="form-group">
                             <label for="image">Image</label>
@@ -44,9 +44,9 @@
                         <div class="form-group">
                             <label for="categorie">Catégorie</label>
                             <select class="form-control" name="categorie" id="categorie">
-                                <option value="fashion">Fashion</option>
-                                <option value="electronics">Electronics</option>
-                                <option value="motors">Motors</option>
+                                <option value="1">Fashion</option>
+                                <option value="2">Electronics</option>
+                                <option value="3">Motors</option>
                             </select>
                         </div>
 

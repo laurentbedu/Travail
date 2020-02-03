@@ -1,7 +1,6 @@
 <?php
+require("connexion.php");
 require("fonctions.php");
-
-$base = connect();
 
 $sql = "SELECT P.id, P.name, P.price, P.description, P.image, Categories.name AS categorie_name FROM Products AS P
 INNER JOIN Categories ON P.category_id = Categories.id

@@ -1,9 +1,10 @@
 <?php
+require("connexion.php");
 require("fonctions.php");
 
-$base = connect();
-$produit = $_GET["idProduct"];
+$produit = verifVariable($_GET["idProduct"]);
 
+verifIdExist($base, $produit);
 
 $sql = "SELECT P.id, P.name, P.price, P.description, DAY(P.created) AS jour, MONTH(P.created) AS mois, YEAR(P.created) AS annee, P.image, Categories.name AS categorie_name FROM Products AS P
 INNER JOIN Categories ON P.category_id = Categories.id
@@ -11,6 +12,8 @@ WHERE P.id = " . $produit;
 
 $req = $base->prepare($sql);
 $req->execute();
+
+
 
 while ($data = $req->fetchObject()) {
 ?>

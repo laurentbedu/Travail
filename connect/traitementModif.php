@@ -1,12 +1,10 @@
 <?php
-
+require("connexion.php");
 require("fonctions.php");
 
-$base = connect();
-
 $id = verifVariable($_POST["id"]);
-$name = verifVariable($_POST["name"]);   
-$description = verifVariable($_POST["description"]);    
+$name = verifVariable($_POST["name"]);
+$description = verifVariable($_POST["description"]);
 $categoryName = verifVariable($_POST["categoryName"]);   
 $price = verifVariable($_POST["price"]);                      
 $image = verifVariable($_POST["image"]);

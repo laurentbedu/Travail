@@ -1,15 +1,11 @@
 <?php
+require("connexion.php");
 require("fonctions.php");
 
-$base = connect();
 $idProduct = verifVariable($_GET["idProduct"]);
 
-$sql = "DELETE FROM Products
-WHERE id = :idProd";
+verifIdExist($base, $produit);
 
-$req = $base->prepare($sql);
-$req->bindValue(":idProd", $idProduct);
-$req->execute();
-
+supprItem($base, $idProduct);
 
 header('location: listeProduits.php');
