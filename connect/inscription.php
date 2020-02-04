@@ -46,7 +46,7 @@ session_start();
             </div>
             <div class="form-group">
                 <label for="passeRepeat">Répéter mot de passe</label>
-                <input type="password" class="form-control" id="passeRepeat" placeholder="Retapez votre mot de passe" required>
+                <input type="password" class="form-control" id="passeRepeat" placeholder="Ressaisir votre mot de passe" required>
             </div>
 
             <button type="submit" class="btn btn-success">Valider</button>

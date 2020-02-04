@@ -17,6 +17,7 @@ $req2->execute();
 
 $emailExiste = $req2->fetch();
 
+// Test si l'email existe déjà dans la base de données
 if($emailExiste['Existe'] == 1) {
 
     $req = $base->prepare($sql);
@@ -25,18 +26,13 @@ if($emailExiste['Existe'] == 1) {
 
     $data = $req->fetchObject();
 
+    // On vérifie le mot de passe, si ok on créé les sessions
     if (password_verify($passe, $data->motDePasse)) {
         $_SESSION["connect"] = 1;
         $_SESSION["prenom"] = $data->prenom;
         $_SESSION["typeUtilisateur"] = $data->typeUtilisateur;
-        if ($data->typeUtilisateur == 1) {
-            echo "Bienvenue grand maître suprême " . $_SESSION['prenom'] . "<br>";
-        } else {
-            echo "Vous êtes connecté " . $_SESSION["prenom"] . " et votre type d'utilisateur est " . $_SESSION["typeUtilisateur"] . "<br>";
-        }
-        ?>
-        <a href="espaceProduit.php">Aller à la liste des produits</a>
-        <?php
+        
+        header("location: index.php");
     } else {
         echo "email ou mot de passe incorrect, veuillez recommencer";
         ?>
@@ -44,7 +40,7 @@ if($emailExiste['Existe'] == 1) {
         <?php
     }
 } else {
-    echo "Votre email n'est pas dans notre base de données.";
+    echo "Votre email n'est pas enregistré dans notre base de données. Veuillez vous inscrire.<br>";
     ?>
     <a href="index.php">Retourner à l'accueil</a>
     <?php

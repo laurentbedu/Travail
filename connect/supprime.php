@@ -12,6 +12,5 @@ WHERE id = :idProd";
 $req = $base->prepare($sql);
 $req->bindValue(":idProd", $idProduct);
 $req->execute();
-//supprItem($base, $idProduct);
 
 header('location: espaceProduit.php');

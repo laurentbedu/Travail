@@ -1,4 +1,8 @@
 <?php
+
+// A faire : tester si l'email existe déjà dans la base de données
+
+
 require("connexionBDD.php");
 require("fonctions.php");
 
@@ -20,4 +24,4 @@ $req->bindvalue(":password", $passe);
 
 $req->execute();
 
-header('location: espaceProduit.php');
+header('location: index.php');

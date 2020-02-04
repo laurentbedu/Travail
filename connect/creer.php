@@ -58,6 +58,7 @@ session_start();
                     </form>
 
                     <div class="w-100 mt-5"></div>
+                    
                 <p><a href="espaceProduit.php" class="btn btn-danger">&larr; Annuler et revenir à la liste des produits</a></p>
                 </div>
             </div>
