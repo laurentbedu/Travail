@@ -6,6 +6,12 @@ $idProduct = verifVariable($_GET["idProduct"]);
 
 verifIdExist($base, $produit);
 
-supprItem($base, $idProduct);
+$sql = "DELETE FROM Products
+WHERE id = :idProd";
 
-header('location: listeProduits.php');
+$req = $base->prepare($sql);
+$req->bindValue(":idProd", $idProduct);
+$req->execute();
+//supprItem($base, $idProduct);
+
+header('location: espaceProduit.php');

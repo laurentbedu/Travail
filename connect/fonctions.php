@@ -26,21 +26,13 @@ function verifIdExist($base, $val){
                 return true;
             }
         } else {
-            header('location: listeProduits.php');
+            header('location: espaceProduit.php');
         }
     }
-    header('location: listeProduits.php');
+    header('location: espaceProduit.php');
 }
 
-// Supprime un enregistrement
-function supprItem($base, $idProduct){
-    $sql = "DELETE FROM Products
-WHERE id = :idProd";
 
-    $req = $base->prepare($sql);
-    $req->bindValue(":idProd", $idProduct);
-    $req->execute();
-}
 
 
 

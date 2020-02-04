@@ -22,4 +22,4 @@ $req->bindvalue(":photo", $image);
 
 $req->execute();
 
-header('location: listeProduits.php');
+header('location: espaceProduit.php');

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="fr">
   <head>
@@ -10,7 +14,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body class="bg-dark">
-      <?php include("header.php"); ?>
+      <?php include("headerAdmin.php"); ?>
 
       
         <div class="container">
@@ -54,7 +58,7 @@
                     </form>
 
                     <div class="w-100 mt-5"></div>
-                <p><a href="listeProduits.php" class="btn btn-danger">&larr; Annuler et revenir à la liste des produits</a></p>
+                <p><a href="espaceProduit.php" class="btn btn-danger">&larr; Annuler et revenir à la liste des produits</a></p>
                 </div>
             </div>
         </div>

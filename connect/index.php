@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="fr">
 
@@ -13,7 +16,12 @@
 
 <body class="bg-dark">
 
-    <?php include("header.php"); ?>
+    <?php include("headerAdmin.php"); ?>
+    <div class="container">
+        <div class="row justify-content-center">
+            <p class="display-1 text-warning">Best Products</p>
+        </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

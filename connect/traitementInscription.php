@@ -6,6 +6,7 @@ $nom = verifVariable($_POST['nom']);
 $prenom = verifVariable($_POST['prenom']);
 $emailUser = verifVariable($_POST['emailUser']);
 $passe = verifVariable($_POST['passe']);
+$passe = password_hash($passe, PASSWORD_DEFAULT);
 
 $sql = "INSERT INTO Utilisateur(nom, prenom, email, motDePasse, typeUtilisateur)
 VALUES(:lastname, :firstname, :mail, :password, 2)";
@@ -19,4 +20,4 @@ $req->bindvalue(":password", $passe);
 
 $req->execute();
 
-header('location: listeProduits.php');
+header('location: espaceProduit.php');

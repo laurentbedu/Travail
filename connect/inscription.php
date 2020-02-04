@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -10,13 +14,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body class="bg-dark">
-<?php include("header.php"); ?>
+<?php include("headerAdmin.php"); ?>
 <div class="container">
     <div class="row justify-content-center">
-        <h2 class="text-center text-warning">LISTE DES PRODUITS</h2>
+        <h2 class="text-center text-warning">INSCRIPTION</h2>
     </div>
     <hr>
     <div class="row border p-5 rounded-lg bg-light">
+        <?php
+        /////////////////////////////////////////////////////////////////////////////////////////
+        // Vérification si l'utilisateur est déjà inscrit - Si il est connecté, il est inscrit //
+        /////////////////////////////////////////////////////////////////////////////////////////
+        if(!isset($_SESSION["connect"])) {
+        ?>
         <form class="border w-75 mx-auto p-5 bg-white shadow-lg" method="post" action="traitementInscription.php">
             <div class="form-group">
                 <label for="nom">Nom</label>
@@ -39,8 +49,13 @@
                 <input type="password" class="form-control" id="passeRepeat" placeholder="Retapez votre mot de passe" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-success">Valider</button>
         </form>
+            <?php
+        } else {
+            echo "Vous êtes déjà inscrit.";
+        }
+        ?>
     </div>
 </div>
 <!-- Optional JavaScript -->

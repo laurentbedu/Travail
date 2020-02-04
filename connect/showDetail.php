@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("connexionBDD.php");
 require("fonctions.php");
 
@@ -31,7 +32,7 @@ while ($data = $req->fetchObject()) {
     </head>
 
     <body class="bg-dark">
-        <?php include("header.php"); ?>
+        <?php include("headerAdmin.php"); ?>
         <div class="container">
 
             <div class="row justify-content-center">
@@ -56,7 +57,7 @@ while ($data = $req->fetchObject()) {
                     </div>
                 </div>
                 <div class="w-100 mt-5"></div>
-                <p><a href="listeProduits.php" class="btn btn-danger">&larr; Revenir à la liste des produits</a></p>
+                <p><a href="espaceProduit.php" class="btn btn-danger">&larr; Revenir à la liste des produits</a></p>
             </div>
         </div>
 

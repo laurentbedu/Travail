@@ -28,6 +28,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Travail\connect" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="creer.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/creer.php">
       <method v="2" />
@@ -65,7 +70,7 @@
       <workItem from="1580380020185" duration="16531000" />
       <workItem from="1580454464486" duration="10492000" />
       <workItem from="1580716775801" duration="23139000" />
-      <workItem from="1580799822052" duration="597000" />
+      <workItem from="1580799822052" duration="27953000" />
     </task>
     <servers />
   </component>
@@ -85,14 +90,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="717" y="309" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1580738356443" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580821545415">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580821545415" />
     <state x="674" y="212" key="#creer.php" timestamp="1580717283372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="674" y="212" key="#creer.php/0.0.1920.1040@0.0.1920.1040" timestamp="1580717283372" />
-    <state x="795" y="439" key="NewPhpFileDialog" timestamp="1580739648723">
+    <state x="795" y="439" key="NewPhpFileDialog" timestamp="1580812002680">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="795" y="439" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580739648723" />
+    <state x="795" y="439" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580812002680" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1580717398595">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
