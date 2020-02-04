@@ -3,7 +3,10 @@
 // Vérifie les variables && protège des injections XSS
 function verifVariable($val) {
     if (isset($val) && !empty($val)) {
-        return htmlspecialchars(trim($val));
+        $val = trim($val);
+        $val = stripslashes($val);
+        $val = htmlspecialchars($val);
+        return $val;
     } else {
         return false;
     }
